@@ -204,7 +204,8 @@ LEFT JOIN Canciones AS c1
 ON b.idGrupo = c1.idGrupo
 GROUP BY (b.idGrupo)
 ) AS G 
-GROUP BY G.idGrupo;
+GROUP BY G.idGrupo
+ORDER BY (G.Nombre);
 
 /* ------------------------------------------------------------------ ARTISTA GRUPO ------------------------------------------------------------------ */
 CREATE OR REPLACE VIEW

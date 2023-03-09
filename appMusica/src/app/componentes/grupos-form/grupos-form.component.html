@@ -1,0 +1,142 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" formControlName="Nombre" [(ngModel)]="grupo.Nombre" placeholder="Nombre del Grupo:"
+            class="form-control" autofocus>
+
+          <span *ngIf="form.get('Nombre')?.hasError('required') && form.get('Nombre')?.touched">El campo NOMBRE es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Origen -->
+        <div class="card-body">
+          <input type="text" formControlName="Origen" [(ngModel)]="grupo.Origen" placeholder="Origen del Grupo:"
+            class="form-control">
+
+          <span *ngIf="form.get('Origen')?.hasError('required') && form.get('Origen')?.touched">El campo ORIGEN es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Genero -->
+        <div class="card-body">
+          <textarea formControlName="Genero" [(ngModel)]="grupo.Genero" placeholder="Genero del Grupo:" rows="2"
+            class="form-control"></textarea>
+
+          <span *ngIf="form.get('Genero')?.hasError('required') && form.get('Genero')?.touched">El campo GENERO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Inicio -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Inicio del Grupo</label>
+            <input type="date" [(ngModel)]="grupo.Inicio" formControlName="Inicio" class="form-control" />
+          </div>
+
+          <span *ngIf="form.get('Inicio')?.hasError('required') && form.get('Inicio')?.touched">El campo INICIO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Fin -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Fin del Grupo</label>
+            <input type="date" [(ngModel)]="grupo.Fin" formControlName="Fin" class="form-control" />
+          </div>
+        </div>
+
+        <!-- Sellos -->
+        <div class="card-body">
+          <textarea formControlName="Sellos" [(ngModel)]="grupo.Sellos" placeholder="Sellos discograficos:" rows="2"
+            class="form-control"></textarea>
+
+          <span *ngIf="form.get('Sellos')?.hasError('required') && form.get('Sellos')?.touched">El campo SELLOS es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Estado -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="actividad">Estado</label>
+            <select formControlName="Estado" [(ngModel)]="grupo.Estado" class="form-control" id="actividad" autofocus>
+              <option selected disabled value="">Estado del Grupo</option>
+              <option value="Activo">Activo</option>
+              <option value="Disuelto">Disuelto</option>
+              <option value="En hiato">En hiato</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('Estado')?.hasError('required') && form.get('Estado')?.touched">El campo ESTADO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- SitioWeb -->
+        <div class="card-body">
+          <input type="url" formControlName="SitioWeb" [(ngModel)]="grupo.SitioWeb" placeholder="Sitio Web:"
+            class="form-control">
+
+          <span *ngIf="form.get('SitioWeb')?.hasError('required') && form.get('SitioWeb')?.touched">El campo SITIO WEB
+            es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Idioma -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="idioma">Idioma</label>
+            <select formControlName="Idioma" [(ngModel)]="grupo.Idioma" class="form-control" id="idioma">
+              <option selected disabled value="">Selecciona el Idioma</option>
+              <option value="Aleman">Alemán</option>
+              <option value="Coreano">Coreano</option>
+              <option value="Español">Español</option>
+              <option value="Frances">Francés</option>
+              <option value="Ingles">Inglés</option>
+              <option value="Italiano">Italiano</option>
+              <option value="Latin">Latín</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('Idioma')?.hasError('required') && form.get('Idioma')?.touched">El campo IDIOMA es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Logo -->
+        <div class="card-body">
+          <input type="url" formControlName="Logo" [(ngModel)]="grupo.Logo" placeholder="Logo:" class="form-control">
+
+          <span *ngIf="form.get('Logo')?.hasError('required') && form.get('Logo')?.touched">El campo LOGO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/grupo" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualiza() : add()">
+            Aceptar
+          </button>
+          <a href="/grupo" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <img [src]="grupo.Logo == '' ? '/assets/noImagen.png' : grupo.Logo " class="card-img-top">
+    <h3 style="text-transform: uppercase;">
+      {{grupo.idGrupo}} - {{grupo.Nombre == '' ? 'Nombre del Grupo' : grupo.Nombre}}
+    </h3>
+    <p>{{grupo.Origen == '' ? 'Origen' : grupo.Origen}}</p>
+    <p>{{grupo.Genero == '' ? 'Genero' : grupo.Genero}}</p>
+    <p>{{grupo.Inicio == ''? 'Inicio' : (grupo.Inicio | date: 'dd / MMMM / yyyy')}}</p>
+    <p>{{grupo.Fin == ''? 'Fin' : (grupo.Fin | date: 'dd / MMMM / yyyy')}}</p>
+    <p>{{grupo.Sellos == '' ? 'Sellos Discograficos' : grupo.Sellos}}</p>
+    <p>{{grupo.Estado == '' ? 'Estado del Grupo' : grupo.Estado}}</p>
+    <p><a href="{{grupo.SitioWeb}}" target="_blank">{{grupo.SitioWeb == '' ? 'Sitio Web' : grupo.SitioWeb}}</a></p>
+    <p>{{grupo.Idioma == '' ? 'Idioma' : grupo.Idioma}}</p>
+  </div>
+</div>
