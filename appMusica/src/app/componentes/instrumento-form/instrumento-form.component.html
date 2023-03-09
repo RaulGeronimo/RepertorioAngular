@@ -1,0 +1,51 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" formControlName="Nombre" [(ngModel)]="instrumentos.Nombre" placeholder="Nombre del Pais:"
+            class="form-control" autofocus>
+
+          <span *ngIf="form.get('Nombre')?.hasError('required') && form.get('Nombre')?.touched">El campo NOMBRE es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Descripcion -->
+        <div class="card-body">
+          <textarea formControlName="Descripcion" [(ngModel)]="instrumentos.Descripcion"
+            placeholder="Descripcion del Instrumento:" rows="4" class="form-control"></textarea>
+
+          <span *ngIf="form.get('Descripcion')?.hasError('required') && form.get('Descripcion')?.touched">El campo
+            DESCRIPCION es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Foto -->
+        <div class="card-body">
+          <input type="url" formControlName="Foto" [(ngModel)]="instrumentos.Foto" placeholder="Foto:"
+            class="form-control">
+
+          <span *ngIf="form.get('Foto')?.hasError('required') && form.get('Foto')?.touched">El campo FOTO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/instrumento" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualiza() : add()">Aceptar</button>
+          <a href="/instrumento" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <img [src]="instrumentos.Foto == '' ? '/assets/noImagen.png' : instrumentos.Foto " class="card-img-top">
+    <h3 style="text-transform: uppercase;">
+      {{instrumentos.idInstrumento}} - {{instrumentos.Nombre == '' ? 'Nombre del Instrumento' : instrumentos.Nombre}}
+    </h3>
+    <p>{{instrumentos.Descripcion == '' ? 'Descripcion' : instrumentos.Descripcion}}</p>
+  </div>
+</div>

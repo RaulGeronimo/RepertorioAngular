@@ -13,12 +13,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './componentes/navigation/navigation.component';
 
-/* LIST */
+/* APARTADOS */
 import { PaisListComponent } from './componentes/pais-list/pais-list.component';
 import { PaisFormComponent } from './componentes/pais-form/pais-form.component';
 
+import { InstrumentoListComponent } from './componentes/instrumento-list/instrumento-list.component';
+import { InstrumentoFormComponent } from './componentes/instrumento-form/instrumento-form.component';
+
 /* SERVICIOS */
 import { PaisService } from './servicios/pais.service';
+import { InstrumentosService } from './servicios/instrumentos.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,8 @@ import { PaisService } from './servicios/pais.service';
     NavigationComponent,
     PaisListComponent,
     PaisFormComponent,
+    InstrumentoListComponent,
+    InstrumentoFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,8 @@ import { PaisService } from './servicios/pais.service';
     }),
   ],
   providers: [
-    PaisService
+    PaisService,
+    InstrumentosService
   ],
   bootstrap: [AppComponent],
 })
