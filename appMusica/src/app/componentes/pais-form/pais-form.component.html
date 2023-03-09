@@ -1,0 +1,73 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" formControlName="Nombre" [(ngModel)]="pais.Nombre" placeholder="Nombre del Pais:"
+            class="form-control" autofocus>
+
+          <span *ngIf="form.get('Nombre')?.hasError('required') && form.get('Nombre')?.touched">El campo NOMBRE es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Continente -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Continente</label>
+            <select formControlName="Continente" [(ngModel)]="pais.Continente" class="form-select"
+              id="inputGroupSelect01">
+              <option selected disabled value="">Selecciona un Continente</option>
+              <option value="Africa">Africa</option>
+              <option value="America">America</option>
+              <option value="Antartida">Antartida</option>
+              <option value="Asia">Asia</option>
+              <option value="Europa">Europa</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('Continente')?.hasError('required') && form.get('Continente')?.touched">El campo
+            CONTINENTE es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Nacionalidad -->
+        <div class="card-body">
+          <input type="text" formControlName="Nacionalidad" [(ngModel)]="pais.Nacionalidad"
+            placeholder="Nacionalidad del Pais:" class="form-control">
+
+          <span *ngIf="form.get('Nacionalidad')?.hasError('required') && form.get('Nacionalidad')?.touched">El campo
+            NACIONALIDAD es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Banderea -->
+        <div class="card-body">
+          <input type="url" formControlName="Bandera" [(ngModel)]="pais.Bandera" placeholder="Bandera:"
+            class="form-control">
+
+          <span *ngIf="form.get('Bandera')?.hasError('required') && form.get('Bandera')?.touched">El campo BANDERA es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/pais" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualizaPais() : addPais()">Aceptar</button>
+          <a href="/pais" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <img [src]="pais.Bandera == '' ? '/assets/noImagen.png' : pais.Bandera " class="card-img-top">
+    <h3 style="text-transform: uppercase;">
+      {{pais.idPais}} - {{pais.Nombre == '' ? 'Nombre del Pais' : pais.Nombre}}</h3>
+    <p>{{pais.Continente == '' ? 'Continente' : pais.Continente}}</p>
+    <p>{{pais.Nacionalidad == '' ? 'Nacionalidad' : pais.Nacionalidad}}</p>
+  </div>
+</div>

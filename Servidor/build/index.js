@@ -31,7 +31,7 @@ class Server {
         this.rutas();
     }
     config() {
-        this.app.set('port', process.env.PORT || 5000);
+        this.app.set('port', process.env.PORT || 3000);
         this.app.use((0, morgan_1.default)('dev'));
         this.app.use((0, cors_1.default)());
         this.app.use(express_1.default.json()); //puede ser leidos por un json

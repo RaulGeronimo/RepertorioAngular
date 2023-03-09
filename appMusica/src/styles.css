@@ -1,1 +1,121 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url(/assets/fondo.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  .inicio {
+    margin-block-start: 60px;
+    margin-block-end: 10px;
+  }
+  
+  .margen{
+    margin-bottom: 1.5rem;
+  }
+  
+  .botones {
+    float: right;
+  }
+  
+  .botones button,
+  a {
+    margin-right: 4px;
+  }
+  
+  form button {
+    margin-right: 4px;
+  }
+  
+  span strong {
+    color: brown;
+  }
+  
+  /* TABLA */
+  table {
+    width: 100%;
+    background: #303030;
+    margin-bottom: 1.25em;
+    border: solid 1px #dddddd;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  table thead{
+    background-color: #000000;
+  }
+  
+  table tr th,
+  table tr td {
+    padding: 0.5625em 0.625em;
+    font-size: 0.875em;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #dddddd;
+  }
+  
+  table th {
+    text-transform: uppercase;
+  }
+  
+  table tr.even,
+  table tr.alt,
+  table tr:nth-of-type(even) {
+    background: #000000;
+  }
+  
+  @media only screen and (max-width: 768px) {
+  
+    table.resp,
+    .resp thead,
+    .resp tbody,
+    .resp tr,
+    .resp th,
+    .resp td,
+    .resp caption {
+      display: block;
+    }
+  
+    table.resp {
+      border: none
+    }
+  
+    .resp thead tr {
+      display: none;
+    }
+  
+    .resp tbody tr {
+      margin: 1em 0;
+      border: 1px solid white;
+    }
+  
+    .resp td {
+      border: none;
+      border-bottom: 1px solid #dddddd;
+      position: relative;
+      padding-left: 45%;
+      text-align: left;
+    }
+  
+    .resp tr td:last-child {
+      border-bottom: 1px double #dddddd;
+    }
+  
+    .resp tr:last-child td:last-child {
+      border: none;
+    }
+  
+    .resp td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+  
