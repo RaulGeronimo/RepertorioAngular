@@ -1,0 +1,135 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" formControlName="Nombre" [(ngModel)]="artista.Nombre" placeholder="Nombre del Artista:"
+            class="form-control" autofocus>
+
+          <span *ngIf="form.get('Nombre')?.hasError('required') && form.get('Nombre')?.touched">El campo NOMBRE es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Nombre Artistico -->
+        <div class="card-body">
+          <input type="text" formControlName="NombreArtistico" [(ngModel)]="artista.NombreArtistico"
+            placeholder="Nombre Artistico:" class="form-control">
+
+          <span *ngIf="form.get('NombreArtistico')?.hasError('required') && form.get('NombreArtistico')?.touched">El
+            campo NOMBRE ARTISTICO es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Genero -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="actividad">Genero</label>
+            <select formControlName="Genero" [(ngModel)]="artista.Genero" class="form-control" id="actividad">
+              <option selected disabled value="">Selecciona un Genero</option>
+              <option value="H">Hombre</option>
+              <option value="M">Mujer</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('Genero')?.hasError('required') && form.get('Genero')?.touched">El campo GENERO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Nacimiento -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Fecha de Nacimiento</label>
+            <input type="date" [(ngModel)]="artista.FechaNacimiento" formControlName="FechaNacimiento"
+              class="form-control" />
+          </div>
+
+          <span *ngIf="form.get('FechaNacimiento')?.hasError('required') && form.get('FechaNacimiento')?.touched">El
+            campo FECHA NACIMIENTO es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Finado -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Fecha de Finado</label>
+            <input type="date" [(ngModel)]="artista.FechaFinado" formControlName="FechaFinado" class="form-control" />
+          </div>
+        </div>
+
+        <!-- Estatura -->
+        <div class="card-body">
+          <input type="number" formControlName="Estatura" [(ngModel)]="artista.Estatura" placeholder="Estatura:"
+            class="form-control">
+
+          <span *ngIf="form.get('Estatura')?.hasError('required') && form.get('Estatura')?.touched">El campo ESTATURA es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Nacionalidad -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Nacionalidad</label>
+            <select formControlName="idNacionalidad" [(ngModel)]="artista.idNacionalidad" class="form-control"
+              id="inputGroupSelect02">
+              <option selected disabled value="">Selecciona una Nacionalidad</option>
+              <option *ngFor="let pais of Pais" value="{{pais.idPais}}">{{pais.Nombre}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idNacionalidad')?.hasError('required') && form.get('idNacionalidad')?.touched">El campo
+            NACIONALIDAD es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Instrumentos -->
+        <div class="card-body">
+          <textarea formControlName="Instrumentos" [(ngModel)]="artista.Instrumentos" placeholder="Instrumentos:"
+            rows="2" class="form-control"></textarea>
+
+          <span *ngIf="form.get('Instrumentos')?.hasError('required') && form.get('Instrumentos')?.touched">El campo
+            INSTRUMENTOS es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Tipo de Voz -->
+        <div class="card-body">
+          <input type="text" formControlName="TipoVoz" [(ngModel)]="artista.TipoVoz" placeholder="Tipo de Voz:"
+            class="form-control">
+
+          <span *ngIf="form.get('TipoVoz')?.hasError('required') && form.get('TipoVoz')?.touched">El campo TIPO VOZ es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Foto -->
+        <div class="card-body">
+          <input type="url" formControlName="Foto" [(ngModel)]="artista.Foto" placeholder="Foto:" class="form-control">
+
+          <span *ngIf="form.get('Foto')?.hasError('required') && form.get('Foto')?.touched">El campo FOTO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/artista" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualiza() : add()">Aceptar</button>
+          <a href="/artista" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <img [src]="artista.Foto == '' ? '/assets/noImagen.png' : artista.Foto " class="card-img-top">
+    <h3 style="text-transform: uppercase;">
+      {{artista.idArtista}} - {{artista.Nombre == '' ? 'Nombre del Artista' : artista.Nombre}}
+    </h3>
+    <p>{{artista.NombreArtistico == '' ? 'Nombre Artistico' : artista.NombreArtistico}}</p>
+    <p>{{artista.Genero == '' ? 'Genero' : artista.Genero}}</p>
+    <p>{{artista.FechaNacimiento == ''? 'Fecha de Nacimiento' : (artista.FechaNacimiento | date: 'dd / MMMM / yyyy')}}
+    </p>
+    <p>{{artista.FechaFinado == ''? 'Finado' : (artista.FechaFinado | date: 'dd / MMMM / yyyy')}}</p>
+    <p>{{artista.Estatura == 0 ? 'Estatura' : artista.Estatura}}</p>
+    <p>{{artista.idNacionalidad == '' ? 'Pais' : artista.idNacionalidad}}</p>
+    <p>{{artista.Instrumentos == '' ? 'Instrumentos' : artista.Instrumentos}}</p>
+    <p>{{artista.TipoVoz == '' ? 'Tipo de Voz' : artista.TipoVoz}}</p>
+  </div>
+</div>

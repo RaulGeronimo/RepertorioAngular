@@ -1,5 +1,6 @@
 "use strict";
-/* export default{
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
     database: {
         host: 'localhost',
         user: 'root',
@@ -7,9 +8,8 @@
         database: 'Repertorio',
         port: 33065
     }
-} */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+};
+/* export default{
     database: {
         host: 'localhost',
         user: 'root',
@@ -17,4 +17,4 @@ exports.default = {
         database: 'Repertorio',
         port: 3306
     }
-};
+} */ 

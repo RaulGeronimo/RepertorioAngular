@@ -1,0 +1,28 @@
+<div class="inicio">
+  <a type="button" class="btn btn-primary" href="/artista/agregar">Agregar</a>
+</div>
+
+<div class="col-md-4" *ngFor="let artista of artistas" style="margin-bottom: 1.5rem;">
+  <div class="card text-center">
+    <div class="card-header text-white d-flex justify-content-between align-items-center">
+      {{artista.NombreArtistico}}
+      <button class="btn btn-danger" (click)="borrar(artista.idArtista)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img [src]="artista.Foto == '' ? '/assets/noImagen.png' : artista.Foto " alt="Imagen del Artista">
+    <div class="card-body">
+      <p style="font-weight: bold;">Fecha Nacimiento</p>
+      <p>{{artista.FechaNacimiento}}</p>
+      <p style="font-weight: bold;">Edad</p>
+      <p>{{artista.Edad}}</p>
+      <p style="font-weight: bold;">Instrumentos que toca</p>
+      <p>{{artista.Instrumentos}}</p>
+      <p style="font-weight: bold;">Tipo Voz</p>
+      <p>{{artista.TipoVoz}}</p>
+      <p style="font-weight: bold;">Nacionalidad</p>
+      <p>{{artista.Pais}}</p>
+      <a [routerLink]="['/artista/actualizar', artista.idArtista]" class="btn btn-info btn-block">Editar</a>
+    </div>
+  </div>
+</div>

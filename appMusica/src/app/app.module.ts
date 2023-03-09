@@ -20,9 +20,13 @@ import { PaisFormComponent } from './componentes/pais-form/pais-form.component';
 import { InstrumentoListComponent } from './componentes/instrumento-list/instrumento-list.component';
 import { InstrumentoFormComponent } from './componentes/instrumento-form/instrumento-form.component';
 
+import { ArtistaListComponent } from './componentes/artista-list/artista-list.component';
+import { ArtistaFormComponent } from './componentes/artista-form/artista-form.component';
+
 /* SERVICIOS */
 import { PaisService } from './servicios/pais.service';
 import { InstrumentosService } from './servicios/instrumentos.service';
+import { ArtistaService } from './servicios/artista.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { InstrumentosService } from './servicios/instrumentos.service';
     PaisFormComponent,
     InstrumentoListComponent,
     InstrumentoFormComponent,
+    ArtistaListComponent,
+    ArtistaFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,8 @@ import { InstrumentosService } from './servicios/instrumentos.service';
   ],
   providers: [
     PaisService,
-    InstrumentosService
+    InstrumentosService,
+    ArtistaService
   ],
   bootstrap: [AppComponent],
 })

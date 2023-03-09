@@ -6,22 +6,43 @@ import { RouterModule, Routes } from '@angular/router';
 //Importacion de las Listas
 import { PaisListComponent } from './componentes/pais-list/pais-list.component';
 import { InstrumentoListComponent } from './componentes/instrumento-list/instrumento-list.component';
+import { ArtistaListComponent } from './componentes/artista-list/artista-list.component';
 
 //Importamos los Formularios
 import { PaisFormComponent } from './componentes/pais-form/pais-form.component';
 import { InstrumentoFormComponent } from './componentes/instrumento-form/instrumento-form.component';
+import { ArtistaFormComponent } from './componentes/artista-form/artista-form.component';
 
 const routes: Routes = [
   //Creacion de los Objetos
+  /* ARTISTA */
+  {
+    path: '',
+    redirectTo: '/artista',
+    pathMatch: 'full',
+  },
+  {
+    path: 'artista', //Se creo la ruta para abrir un componente
+    component: ArtistaListComponent,
+  },
+  {
+    path: 'artista/agregar',
+    component: ArtistaFormComponent,
+  },
+  {
+    path: 'artista/actualizar/:idArtista',
+    component: ArtistaFormComponent,
+  },
+
   /* INSTRUMENTOS */
   {
     path: '',
     redirectTo: '/instrumento',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'instrumento', //Se creo la ruta para abrir un componente
-    component: InstrumentoListComponent
+    component: InstrumentoListComponent,
   },
   {
     path: 'instrumento/agregar',
@@ -29,18 +50,18 @@ const routes: Routes = [
   },
   {
     path: 'instrumento/actualizar/:idInstrumento',
-    component: InstrumentoFormComponent
+    component: InstrumentoFormComponent,
   },
 
   /* PAIS */
   {
     path: '',
     redirectTo: '/pais',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'pais', //Se creo la ruta para abrir un componente
-    component: PaisListComponent
+    component: PaisListComponent,
   },
   {
     path: 'pais/agregar',
@@ -48,12 +69,12 @@ const routes: Routes = [
   },
   {
     path: 'pais/actualizar/:idPais',
-    component: PaisFormComponent
+    component: PaisFormComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

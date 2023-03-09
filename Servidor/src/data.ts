@@ -1,4 +1,4 @@
-/* export default{
+export default{
     database: {
         host: 'localhost',
         user: 'root',
@@ -6,9 +6,9 @@
         database: 'Repertorio',
         port: 33065
     }
-} */
+}
 
-export default{
+/* export default{
     database: {
         host: 'localhost',
         user: 'root',
@@ -16,4 +16,4 @@ export default{
         database: 'Repertorio',
         port: 3306
     }
-}
+} */
