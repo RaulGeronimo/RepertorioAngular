@@ -6,20 +6,20 @@
   <thead>
     <tr>
       <th scope="col">Nombre</th>
+      <th scope="col">Grupo</th>
       <th scope="col">Duración</th>
       <th scope="col">Publicación</th>
       <th scope="col">Genero</th>
-      <th scope="col">Interpretacion</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let canciones of Canciones">
       <td>{{canciones.Nombre}}</td>
+      <td>{{canciones.Grupo}}</td>
       <td>{{canciones.Duracion}}</td>
       <td>{{canciones.Publicacion}}</td>
       <td>{{canciones.Genero}}</td>
-      <td>{{canciones.Interpretacion}}</td>
       <td>
         <a [routerLink]="['/canciones/actualizar', canciones.idCancion]" class="btn btn-info btn-block"><i
             class="fa-solid fa-pen-to-square"></i></a>

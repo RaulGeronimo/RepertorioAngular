@@ -76,22 +76,22 @@
       <thead>
         <tr>
           <th scope="col">Nombre</th>
+          <th scope="col">Albums</th>
           <th scope="col">Duración</th>
           <th scope="col">Publicación</th>
-          <th scope="col">Interpretacion</th>
           <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let Canciones of Canciones">
           <td>{{Canciones.Nombre}}</td>
+          <td>{{Canciones.Albums}}</td>
           <td>{{Canciones.Duracion}}</td>
           <td>{{Canciones.Publicacion}}</td>
-          <td>{{Canciones.Interpretacion}}</td>
           <td>
-            <a [routerLink]="['/canciones_Album/actualizar', Canciones.Codigo]" class="btn btn-info btn-block"><i
+            <a [routerLink]="['/canciones/actualizar', Canciones.idCancion]" class="btn btn-info btn-block"><i
                 class="fa-solid fa-pen-to-square"></i></a>
-            <button class="btn btn-danger" (click)="borrar(Canciones.Codigo)">
+            <button class="btn btn-danger" (click)="borrar(Canciones.idCancion)">
               <i class="far fa-trash-alt"></i>
             </button>
           </td>

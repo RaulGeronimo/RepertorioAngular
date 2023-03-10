@@ -309,7 +309,11 @@ CREATE OR REPLACE VIEW
 Vista_Canciones AS
 SELECT
 Canciones.idCancion,
-Canciones.Nombre,
+/* Canciones.Nombre, */
+CASE
+WHEN Canciones.Interpretacion = 'Demo' THEN CONCAT(Canciones.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
+ELSE Canciones.Nombre
+END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%d / %M / %Y") AS Publicacion,
 CASE
@@ -321,7 +325,7 @@ Canciones.Idioma,
 Canciones.Interpretacion,
 Grupo.Nombre AS Grupo
 FROM Canciones
-INNER JOIN Grupo
+LEFT JOIN Grupo
 ON Grupo.idGrupo = Canciones.idGrupo
 ORDER BY Nombre;
 
@@ -334,7 +338,11 @@ Canciones.idCancion,
 Album.idAlbum,
 Album.Nombre AS Album,
 Canciones_Album.Numero,
-Canciones.Nombre,
+/* Canciones.Nombre, */
+CASE
+WHEN Canciones.Interpretacion = 'Demo' THEN CONCAT(Canciones.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
+ELSE Canciones.Nombre
+END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Publicacion, "%d / %M / %Y") AS Publicacion,
 Canciones.Genero,
@@ -354,14 +362,21 @@ Canciones.idCancion,
 Grupo.idGrupo,
 Grupo.Nombre AS Grupo,
 Canciones.Nombre,
+GROUP_CONCAT(album.Nombre separator ', ') AS Albums,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%d / %M / %Y") AS Publicacion,
 Canciones.Genero,
 Canciones.Idioma,
 Canciones.Interpretacion
 FROM Canciones
-INNER JOIN Grupo
-ON Grupo.idGrupo = Canciones.idGrupo;
+LEFT JOIN Grupo
+ON Grupo.idGrupo = Canciones.idGrupo
+LEFT JOIN canciones_album
+ON canciones.idCancion = canciones_album.idCancion
+LEFT JOIN album
+ON album.idalbum = canciones_album.idalbum
+GROUP BY idCancion
+ORDER BY Nombre, Album.Nombre;
 
 /* ----------------------------------------------------------------------------- PROCEDIMIENTOS ALMACENADOS ----------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------ ARTISTA GRUPO ------------------------------------------------------------------ */
