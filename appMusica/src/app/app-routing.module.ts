@@ -11,7 +11,9 @@ import { GruposListComponent } from './componentes/grupos-list/grupos-list.compo
 import { ArtistaGrupoListComponent } from './componentes/artista-grupo-list/artista-grupo-list.component';
 import { DisqueraListComponent } from './componentes/disquera-list/disquera-list.component';
 import { AlbumListComponent } from './componentes/album-list/album-list.component';
-
+import { CancionesListComponent } from './componentes/canciones-list/canciones-list.component';
+/* import { CancionesAlbumListComponent } from './componentes/canciones-album-list/canciones-album-list.component';
+ */
 //Importamos los Formularios
 import { PaisFormComponent } from './componentes/pais-form/pais-form.component';
 import { InstrumentoFormComponent } from './componentes/instrumento-form/instrumento-form.component';
@@ -20,9 +22,36 @@ import { GruposFormComponent } from './componentes/grupos-form/grupos-form.compo
 import { ArtistaGrupoFormComponent } from './componentes/artista-grupo-form/artista-grupo-form.component';
 import { DisqueraFormComponent } from './componentes/disquera-form/disquera-form.component';
 import { AlbumFormComponent } from './componentes/album-form/album-form.component';
-
+import { CancionesFormComponent } from './componentes/canciones-form/canciones-form.component';
+/* import { CancionesAlbumFormComponent } from './componentes/canciones-album-form/canciones-album-form.component';
+ */
+//Busqueda
+/* import { BuscaCancionAlbumComponent } from './componentes/busca-cancion-album/busca-cancion-album.component';
+import { BuscaAlbumGrupoComponent } from './componentes/busca-album-grupo/busca-album-grupo.component';
+import { BuscaCancionGrupoComponent } from './componentes/busca-cancion-grupo/busca-cancion-grupo.component';
+import { BuscaIntegrantesGrupoComponent } from './componentes/busca-integrantes-grupo/busca-integrantes-grupo.component';
+ */
 const routes: Routes = [
   //Creacion de los Objetos
+  /* CANCIONES */
+  {
+    path: '',
+    redirectTo: '/canciones',
+    pathMatch: 'full',
+  },
+  {
+    path: 'canciones', //Se creo la ruta para abrir un componente
+    component: CancionesListComponent,
+  },
+  {
+    path: 'canciones/agregar',
+    component: CancionesFormComponent,
+  },
+  {
+    path: 'canciones/actualizar/:idCancion',
+    component: CancionesFormComponent,
+  },
+
   /* ALBUM */
   {
     path: '',

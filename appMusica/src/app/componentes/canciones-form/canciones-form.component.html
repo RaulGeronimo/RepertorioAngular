@@ -1,0 +1,126 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" formControlName="Nombre" [(ngModel)]="cancion.Nombre" placeholder="Nombre de la Cancion:"
+            class="form-control" autofocus>
+
+          <span *ngIf="form.get('Nombre')?.hasError('required') && form.get('Nombre')?.touched">El campo NOMBRE es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Duracion -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="Duracion">Duracion</label>
+            <input id="Duracion" type="time" step="2" [(ngModel)]="cancion.Duracion" formControlName="Duracion"
+              class="form-control">
+          </div>
+
+          <span *ngIf="form.get('Duracion')?.hasError('required') && form.get('Duracion')?.touched">El campo DURACION es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Publicacion -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="Publicacion">Fecha de Publicacion</label>
+            <input id="Publicacion" type="date" [(ngModel)]="cancion.Publicacion" formControlName="Publicacion"
+              class="form-control" />
+          </div>
+
+          <span *ngIf="form.get('Publicacion')?.hasError('required') && form.get('Publicacion')?.touched">El campo
+            PUBLICACION es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Genero -->
+        <div class="card-body">
+          <textarea formControlName="Genero" [(ngModel)]="cancion.Genero" placeholder="Genero de la Cancion:" rows="2"
+            class="form-control"></textarea>
+
+          <span *ngIf="form.get('Genero')?.hasError('required') && form.get('Genero')?.touched">El campo GENERO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Idioma -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="idioma">Idioma</label>
+            <select formControlName="Idioma" [(ngModel)]="cancion.Idioma" class="form-control" id="idioma">
+              <option selected disabled value="">Selecciona el Idioma</option>
+              <option value="Aleman">Alemán</option>
+              <option value="Coreano">Coreano</option>
+              <option value="Español">Español</option>
+              <option value="Frances">Francés</option>
+              <option value="Ingles">Inglés</option>
+              <option value="Italiano">Italiano</option>
+              <option value="Latin">Latín</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('Idioma')?.hasError('required') && form.get('Idioma')?.touched">El campo IDIOMA es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Interpretacion -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="Interpretacion">Interpretacion</label>
+            <select formControlName="Interpretacion" [(ngModel)]="cancion.Interpretacion" class="form-control"
+              id="Interpretacion">
+              <option selected disabled value="">Selecciona la Interpretacion</option>
+              <option value="Cover">Cover</option>
+              <option value="Demo">Demo</option>
+              <option value="Original">Original</option>
+              <option value="Outtake">Outtake</option>
+              <option value="Remake">Remake</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('Interpretacion')?.hasError('required') && form.get('Interpretacion')?.touched">El campo
+            INTERPRETACION es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Grupo -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Grupo</label>
+            <select formControlName="idGrupo" [(ngModel)]="cancion.idGrupo" class="form-control"
+              id="inputGroupSelect02">
+              <option selected disabled value="">Selecciona un Grupo</option>
+              <option *ngFor="let grupo of Grupo" value="{{grupo.idGrupo}}">{{grupo.Nombre}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idGrupo')?.hasError('required') && form.get('idGrupo')?.touched">El campo GRUPO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/canciones" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualiza() : add()">Aceptar</button>
+          <a href="/canciones" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <h3 style="text-transform: uppercase;">
+      {{cancion.idCancion}} - {{cancion.Nombre == '' ? 'Nombre de la Cancion' : cancion.Nombre}}
+    </h3>
+    <p>{{cancion.Duracion == '' ? 'Duracion' : cancion.Duracion}}</p>
+    <p>{{cancion.Publicacion == ''? 'Publicacion' : (cancion.Publicacion | date: 'dd / MMMM / yyyy')}}</p>
+    <p>{{cancion.Genero == '' ? 'Genero' : cancion.Genero}}</p>
+    <p>{{cancion.Idioma == '' ? 'Idioma' : cancion.Idioma}}</p>
+    <p>{{cancion.Interpretacion == '' ? 'Interpretacion' : cancion.Interpretacion}}</p>
+    <p>{{cancion.idGrupo == '' ? 'Grupo' : cancion.idGrupo}}</p>
+  </div>
+</div>
