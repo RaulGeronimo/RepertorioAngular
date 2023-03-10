@@ -1,0 +1,26 @@
+<div class="inicio">
+  <a type="button" class="btn btn-primary" href="/disquera/agregar">Agregar</a>
+</div>
+
+<div class="col-md-4" *ngFor="let disquera of Disqueras" style="margin-bottom: 1.5rem;">
+  <div class="card text-center">
+    <div class="card-header text-white d-flex justify-content-between align-items-center">
+      {{disquera.Nombre}}
+      <button class="btn btn-danger" (click)="borrar(disquera.idDisquera)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img [src]="disquera.Logo == '' ? '/assets/noImagen.png' : disquera.Logo " alt="Imagen de la Disquera">
+    <div class="card-body">
+      <p style="font-weight: bold;">Fundacion</p>
+      <p>{{disquera.Fundacion}}</p>
+      <p style="font-weight: bold;">Fundadores</p>
+      <p>{{disquera.Fundador}}</p>
+      <p style="font-weight: bold;">Generos</p>
+      <p>{{disquera.Generos}}</p>
+      <p style="font-weight: bold;">Pais</p>
+      <p>{{disquera.Pais}}</p>
+      <a [routerLink]="['/disquera/actualizar', disquera.idDisquera]" class="btn btn-info btn-block">Editar</a>
+    </div>
+  </div>
+</div>

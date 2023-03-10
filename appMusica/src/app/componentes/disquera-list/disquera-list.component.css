@@ -1,0 +1,14 @@
+img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 300px;
+  max-width: 450px;
+}
+
+@media (max-width: 1400px) and (min-width: 300px) {
+  img {
+    object-fit: cover;
+    max-width: fit-content;
+    max-height: fit-content;
+  }
+}

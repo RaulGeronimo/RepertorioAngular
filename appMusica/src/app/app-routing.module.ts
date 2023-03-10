@@ -9,6 +9,7 @@ import { InstrumentoListComponent } from './componentes/instrumento-list/instrum
 import { ArtistaListComponent } from './componentes/artista-list/artista-list.component';
 import { GruposListComponent } from './componentes/grupos-list/grupos-list.component';
 import { ArtistaGrupoListComponent } from './componentes/artista-grupo-list/artista-grupo-list.component';
+import { DisqueraListComponent } from './componentes/disquera-list/disquera-list.component';
 
 //Importamos los Formularios
 import { PaisFormComponent } from './componentes/pais-form/pais-form.component';
@@ -16,18 +17,38 @@ import { InstrumentoFormComponent } from './componentes/instrumento-form/instrum
 import { ArtistaFormComponent } from './componentes/artista-form/artista-form.component';
 import { GruposFormComponent } from './componentes/grupos-form/grupos-form.component';
 import { ArtistaGrupoFormComponent } from './componentes/artista-grupo-form/artista-grupo-form.component';
+import { DisqueraFormComponent } from './componentes/disquera-form/disquera-form.component';
 
 const routes: Routes = [
   //Creacion de los Objetos
+  /* DISQUERA */
+  {
+    path: '',
+    redirectTo: '/disquera',
+    pathMatch: 'full',
+  },
+  {
+    path: 'disquera', //Se creo la ruta para abrir un componente
+    component: DisqueraListComponent,
+  },
+  {
+    path: 'disquera/agregar',
+    component: DisqueraFormComponent,
+  },
+  {
+    path: 'disquera/actualizar/:idDisquera',
+    component: DisqueraFormComponent,
+  },
+
   /* ARTISTA GRUPO */
   {
     path: '',
     redirectTo: '/artista_Grupo',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'artista_Grupo', //Se creo la ruta para abrir un componente
-    component: ArtistaGrupoListComponent
+    component: ArtistaGrupoListComponent,
   },
   {
     path: 'artista_Grupo/agregar',
@@ -35,26 +56,26 @@ const routes: Routes = [
   },
   {
     path: 'artista_Grupo/actualizar/:Codigo',
-    component: ArtistaGrupoFormComponent
+    component: ArtistaGrupoFormComponent,
   },
-  
+
   /* GRUPOS */
   {
     path: '',
     redirectTo: '/grupo',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'grupo', //Se creo la ruta para abrir un componente
-    component: GruposListComponent
+    component: GruposListComponent,
   },
   {
     path: 'grupo/agregar',
-    component: GruposFormComponent
+    component: GruposFormComponent,
   },
   {
     path: 'grupo/actualizar/:idGrupo',
-    component: GruposFormComponent
+    component: GruposFormComponent,
   },
 
   /* ARTISTA */
