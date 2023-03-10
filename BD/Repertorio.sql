@@ -312,11 +312,14 @@ Canciones.idCancion,
 Canciones.Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%d / %M / %Y") AS Publicacion,
-CONCAT_WS(' - ', Canciones.Nombre, Grupo.Nombre) AS Cancion,
+CASE
+WHEN Canciones.Interpretacion = 'Demo' THEN CONCAT(Canciones.Nombre, ' - ', Grupo.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
+ELSE CONCAT_WS(' - ', Canciones.Nombre, Grupo.Nombre) 
+END AS Cancion,
 Canciones.Genero,
 Canciones.Idioma,
 Canciones.Interpretacion,
-Grupo.Nombre
+Grupo.Nombre AS Grupo
 FROM Canciones
 INNER JOIN Grupo
 ON Grupo.idGrupo = Canciones.idGrupo

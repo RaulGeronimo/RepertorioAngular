@@ -1,0 +1,30 @@
+<div class="inicio">
+  <a type="button" class="btn btn-primary" href="/canciones_Album/agregar">Agregar</a>
+</div>
+
+<table class="resp">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Álbum</th>
+      <th scope="col">Duración</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let canciones of Canciones">
+      <td>{{canciones.Nombre}}</td>
+      <td>{{canciones.Album}}</td>
+      <td>{{canciones.Duracion}}</td>
+      <td>{{canciones.Genero}}</td>
+      <td>
+        <a [routerLink]="['/canciones_Album/actualizar', canciones.idCancion]" class="btn btn-info btn-block"><i
+            class="fa-solid fa-pen-to-square"></i></a>
+        <button class="btn btn-danger" (click)="borrar(canciones.idCancion)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,63 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Cancion -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Cancion</label>
+            <select formControlName="idCancion" [(ngModel)]="cancionesAlbum.idCancion" class="form-control"
+              id="inputGroupSelect02" autofocus>
+              <option selected disabled value="">Selecciona una Cancion</option>
+              <option *ngFor="let Canciones of Canciones" value="{{Canciones.idCancion}}">{{Canciones.Cancion}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idCancion')?.hasError('required') && form.get('idCancion')?.touched">El campo CANCION
+            es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Album -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Album</label>
+            <select formControlName="idAlbum" [(ngModel)]="cancionesAlbum.idAlbum" class="form-control"
+              id="inputGroupSelect02">
+              <option selected disabled value="">Selecciona un Album</option>
+              <option *ngFor="let Album of Album" value="{{Album.idAlbum}}">{{Album.Album}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idAlbum')?.hasError('required') && form.get('idAlbum')?.touched">El campo ALBUM es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Numero -->
+        <div class="card-body">
+          <input type="number" formControlName="Numero" [(ngModel)]="cancionesAlbum.Numero" placeholder="Numero:"
+            class="form-control">
+
+          <span *ngIf="form.get('Numero')?.hasError('required') && form.get('Numero')?.touched">El campo NUMERO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/canciones_Album" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualiza() : add()">Aceptar</button>
+          <a href="/canciones_Album" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <h3 style="text-transform: uppercase;">
+      {{cancionesAlbum.Codigo}} - {{cancionesAlbum.idCancion == '' ? 'Cancion' : cancionesAlbum.idCancion}}
+    </h3>
+    <p>{{cancionesAlbum.idAlbum == '' ? 'Album' : cancionesAlbum.idAlbum}}</p>
+    <p>{{cancionesAlbum.Numero == 0 ? 'Numero' : cancionesAlbum.Numero}}</p>
+  </div>
+</div>
