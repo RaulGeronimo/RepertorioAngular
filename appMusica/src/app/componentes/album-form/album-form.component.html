@@ -1,0 +1,117 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" formControlName="Nombre" [(ngModel)]="album.Nombre" placeholder="Nombre del Album:"
+            class="form-control" autofocus>
+
+          <span *ngIf="form.get('Nombre')?.hasError('required') && form.get('Nombre')?.touched">El campo NOMBRE es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Grupo -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Grupo</label>
+            <select formControlName="idGrupo" [(ngModel)]="album.idGrupo" class="form-control" id="inputGroupSelect02">
+              <option selected disabled value="">Selecciona un Grupo</option>
+              <option *ngFor="let grupo of Grupo" value="{{grupo.idGrupo}}">{{grupo.Nombre}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idGrupo')?.hasError('required') && form.get('idGrupo')?.touched">El campo GRUPO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Disquera -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Disquera</label>
+            <select formControlName="idDisquera" [(ngModel)]="album.idDisquera" class="form-control"
+              id="inputGroupSelect02">
+              <option selected disabled value="">Selecciona una Disquera</option>
+              <option *ngFor="let disquera of Disquera" value="{{disquera.idDisquera}}">{{disquera.Nombre}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idDisquera')?.hasError('required') && form.get('idDisquera')?.touched">El campo
+            DISQUERA es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Duracion -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Duracion</label>
+            <input type="time" step="2" [(ngModel)]="album.Duracion" formControlName="Duracion" class="form-control">
+          </div>
+
+          <span *ngIf="form.get('Duracion')?.hasError('required') && form.get('Duracion')?.touched">El campo DURACION es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Lanzamiento -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Fecha de Lanzamiento</label>
+            <input type="date" [(ngModel)]="album.Lanzamiento" formControlName="Lanzamiento" class="form-control" />
+          </div>
+
+          <span *ngIf="form.get('Lanzamiento')?.hasError('required') && form.get('Lanzamiento')?.touched">El campo
+            LANZAMIENTO es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Grabacion -->
+        <div class="card-body">
+          <input type="text" formControlName="Grabacion" [(ngModel)]="album.Grabacion"
+            placeholder="Grabacion del Album:" class="form-control">
+
+          <span *ngIf="form.get('Grabacion')?.hasError('required') && form.get('Grabacion')?.touched">El campo GRABACION
+            es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Genero -->
+        <div class="card-body">
+          <textarea formControlName="Genero" [(ngModel)]="album.Genero" placeholder="Genero del Album:" rows="2"
+            class="form-control"></textarea>
+
+          <span *ngIf="form.get('Genero')?.hasError('required') && form.get('Genero')?.touched">El campo GENERO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Portada -->
+        <div class="card-body">
+          <input type="url" formControlName="Portada" [(ngModel)]="album.Portada" placeholder="Portada:"
+            class="form-control">
+
+          <span *ngIf="form.get('Portada')?.hasError('required') && form.get('Portada')?.touched">El campo PORTADA es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/album" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualiza() : add()">Aceptar</button>
+          <a href="/album" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <img [src]="album.Portada == '' ? '/assets/noImagen.png' : album.Portada " class="card-img-top">
+    <h3 style="text-transform: uppercase;">
+      {{album.idAlbum}} - {{album.Nombre == '' ? 'Nombre del Album' : album.Nombre}}
+    </h3>
+    <p>{{album.idGrupo == '' ? 'Grupo' : album.idGrupo}}</p>
+    <p>{{album.idDisquera == '' ? 'Disquera' : album.idDisquera}}</p>
+    <p>{{album.Duracion == '' ? 'Duracion' : album.Duracion}}</p>
+    <p>{{album.Lanzamiento == ''? 'Lanzamiento' : (album.Lanzamiento | date: 'dd / MMMM / yyyy')}}</p>
+    <!-- <p>{{album.Lanzamiento | date: 'dd-MMMM-yyyy'}}</p> -->
+    <p>{{album.Grabacion == '' ? 'Grabacion' : album.Grabacion}}</p>
+    <p>{{album.Genero == '' ? 'Genero' : album.Genero}}</p>
+  </div>
+</div>

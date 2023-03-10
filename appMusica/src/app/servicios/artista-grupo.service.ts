@@ -6,32 +6,32 @@ import { Observable } from 'rxjs';
 import { Artista_Grupo } from '../modelos/ArtistaGrupo';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArtistaGrupoService {
   //Crear una propiedad donde este la ruta
   API_URI = 'http://localhost:3000/app';
   //Hacer una instancia para poder ocupar la propiedad http
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getArtistas(){
+  getArtistas() {
     return this.http.get(`${this.API_URI}/artista_Grupo`);
   }
 
-  getArtista(Codigo: String){
+  getArtista(Codigo: String) {
     return this.http.get(`${this.API_URI}/artista_Grupo/${Codigo}`);
   }
 
-  create(artista: Artista_Grupo){
+  create(artista: Artista_Grupo) {
     return this.http.post(`${this.API_URI}/artista_Grupo`, artista);
   }
 
-  delete(Codigo: string){
+  delete(Codigo: string) {
     return this.http.delete(`${this.API_URI}/artista_Grupo/${Codigo}`);
   }
 
-  update(Codigo: string, update: Artista_Grupo): Observable<Artista_Grupo>{
+  update(Codigo: string, update: Artista_Grupo): Observable<Artista_Grupo> {
     return this.http.put(`${this.API_URI}/artista_Grupo/${Codigo}`, update);
   }
 }
