@@ -1,0 +1,100 @@
+<div class="inicio">
+  <a type="button" class="btn btn-success" href="/canciones_Album/agregar">Agregar</a>
+  <a href="/album" type="button" class="btn btn-primary">Regresar</a>
+</div>
+
+<!-- <table class="resp">
+    <thead>
+      <tr>
+        <th scope="col">Número</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Duración</th>
+        <th scope="col">Publicación</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Canciones of Canciones">
+        <td>{{Canciones.Numero}}</td>
+        <td>{{Canciones.Nombre}}</td>
+        <td>{{Canciones.Duracion}}</td>
+        <td>{{Canciones.Publicacion}}</td>
+        <td>
+          <a [routerLink]="['/canciones_Album/actualizar', Canciones.Codigo]" class="btn btn-info btn-block"><i
+              class="fa-solid fa-pen-to-square"></i></a>
+          <button class="btn btn-danger" (click)="borrar(Canciones.Codigo)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+<div class="row">
+  <div class="col-md-5 margen">
+    <div class="card card-body text-center bg-dark">
+      <img class="grupo" [src]="Album.Portada == '' ? '/assets/noImagen.png' : Album.Portada " alt="Imagen del Album">
+    </div>
+  </div>
+
+  <div class="col-md-7 margen">
+    <div class="card text-center bg-dark">
+      <div class="card-body text-white">
+        <div class="text-white d-flex justify-content-between align-items-center text-center">
+          <a [routerLink]="['/album/actualizar', Album.idAlbum]" class="btn btn-outline-success">Editar Album</a>
+        </div>
+        <!-- <p style="font-weight: bold;">Grupo</p>
+          <p>{{Album.Grupo}}</p>
+          <p style="font-weight: bold;">Canciones</p>
+          <p>{{Album.Canciones}}</p>
+          <p style="font-weight: bold;">Duración</p>
+          <p>{{Album.DuracionF}}</p>
+          <p style="font-weight: bold;">Lanzamiento</p>
+          <p>{{Album.FechaLanzamiento}}</p>
+          <p style="font-weight: bold;">Disquera</p>
+          <p>{{Album.Disquera}}</p>
+          <p style="font-weight: bold;">Grabacion</p>
+          <p>{{Album.Grabacion}}</p> -->
+        <p style="font-weight: bold;">Álbum</p>
+        <p>{{Album.Nombre}}</p>
+        <p style="font-weight: bold;">Duración</p>
+        <p>{{Album.Duracion}}</p>
+        <p style="font-weight: bold;">Lanzamiento</p>
+        <p>{{Album.Lanzamiento | date: 'dd / MMMM / yyyy'}}</p>
+        <p style="font-weight: bold;">Genero</p>
+        <p>{{Album.Genero}}</p>
+        <p style="font-weight: bold;">Grabacion</p>
+        <p>{{Album.Grabacion}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md">
+    <table class="table table-hover resp">
+      <thead>
+        <tr>
+          <th scope="col">Número</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Duración</th>
+          <th scope="col">Publicación</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Canciones of Canciones">
+          <td>{{Canciones.Numero}}</td>
+          <td>{{Canciones.Nombre}}</td>
+          <td>{{Canciones.Duracion}}</td>
+          <td>{{Canciones.Publicacion}}</td>
+          <td>
+            <a [routerLink]="['/canciones_Album/actualizar', Canciones.Codigo]" class="btn btn-info btn-block"><i
+                class="fa-solid fa-pen-to-square"></i></a>
+            <button class="btn btn-danger" (click)="borrar(Canciones.Codigo)">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

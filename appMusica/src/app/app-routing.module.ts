@@ -6,8 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 //Importacion de las Listas
 import { PaisListComponent } from './componentes/pais-list/pais-list.component';
 import { InstrumentoListComponent } from './componentes/instrumento-list/instrumento-list.component';
-import { ArtistaListComponent } from './componentes/artista-list/artista-list.component';
 import { GruposListComponent } from './componentes/grupos-list/grupos-list.component';
+import { ArtistaListComponent } from './componentes/artista-list/artista-list.component';
 import { ArtistaGrupoListComponent } from './componentes/artista-grupo-list/artista-grupo-list.component';
 import { DisqueraListComponent } from './componentes/disquera-list/disquera-list.component';
 import { AlbumListComponent } from './componentes/album-list/album-list.component';
@@ -17,8 +17,8 @@ import { CancionesAlbumListComponent } from './componentes/canciones-album-list/
 //Importamos los Formularios
 import { PaisFormComponent } from './componentes/pais-form/pais-form.component';
 import { InstrumentoFormComponent } from './componentes/instrumento-form/instrumento-form.component';
-import { ArtistaFormComponent } from './componentes/artista-form/artista-form.component';
 import { GruposFormComponent } from './componentes/grupos-form/grupos-form.component';
+import { ArtistaFormComponent } from './componentes/artista-form/artista-form.component';
 import { ArtistaGrupoFormComponent } from './componentes/artista-grupo-form/artista-grupo-form.component';
 import { DisqueraFormComponent } from './componentes/disquera-form/disquera-form.component';
 import { AlbumFormComponent } from './componentes/album-form/album-form.component';
@@ -26,13 +26,32 @@ import { CancionesFormComponent } from './componentes/canciones-form/canciones-f
 import { CancionesAlbumFormComponent } from './componentes/canciones-album-form/canciones-album-form.component';
 
 //Busqueda
-/* import { BuscaCancionAlbumComponent } from './componentes/busca-cancion-album/busca-cancion-album.component';
+import { BuscaCancionAlbumComponent } from './componentes/busca-cancion-album/busca-cancion-album.component';
 import { BuscaAlbumGrupoComponent } from './componentes/busca-album-grupo/busca-album-grupo.component';
 import { BuscaCancionGrupoComponent } from './componentes/busca-cancion-grupo/busca-cancion-grupo.component';
 import { BuscaIntegrantesGrupoComponent } from './componentes/busca-integrantes-grupo/busca-integrantes-grupo.component';
- */
+
 const routes: Routes = [
   //Creacion de los Objetos
+  /* GRUPOS */
+  {
+    path: '',
+    redirectTo: '/grupo',
+    pathMatch: 'full',
+  },
+  {
+    path: 'grupo', //Se creo la ruta para abrir un componente
+    component: GruposListComponent,
+  },
+  {
+    path: 'grupo/agregar',
+    component: GruposFormComponent,
+  },
+  {
+    path: 'grupo/actualizar/:idGrupo',
+    component: GruposFormComponent,
+  },
+
   /* CANCIONES ALBUM */
   {
     path: '',
@@ -128,25 +147,6 @@ const routes: Routes = [
     component: ArtistaGrupoFormComponent,
   },
 
-  /* GRUPOS */
-  {
-    path: '',
-    redirectTo: '/grupo',
-    pathMatch: 'full',
-  },
-  {
-    path: 'grupo', //Se creo la ruta para abrir un componente
-    component: GruposListComponent,
-  },
-  {
-    path: 'grupo/agregar',
-    component: GruposFormComponent,
-  },
-  {
-    path: 'grupo/actualizar/:idGrupo',
-    component: GruposFormComponent,
-  },
-
   /* ARTISTA */
   {
     path: '',
@@ -202,6 +202,51 @@ const routes: Routes = [
   {
     path: 'pais/actualizar/:idPais',
     component: PaisFormComponent,
+  },
+
+  /* ---------------------------------------------------------- BUSQUEDA ---------------------------------------------------------- */
+  /* BUSCA CANCION ALBUM */
+  {
+    path: '',
+    redirectTo: '/buscaCancion_Album',
+    pathMatch: 'full',
+  },
+  {
+    path: 'buscaCancion_Album/:idAlbum',
+    component: BuscaCancionAlbumComponent,
+  },
+
+  /* BUSCA ALBUM GRUPO */
+  {
+    path: '',
+    redirectTo: '/buscaAlbum_Grupo',
+    pathMatch: 'full',
+  },
+  {
+    path: 'buscaAlbum_Grupo/:idGrupo',
+    component: BuscaAlbumGrupoComponent,
+  },
+
+  /* BUSCA CANCION GRUPO */
+  {
+    path: '',
+    redirectTo: '/buscaCancion_Grupo',
+    pathMatch: 'full',
+  },
+  {
+    path: 'buscaCancion_Grupo/:idGrupo',
+    component: BuscaCancionGrupoComponent,
+  },
+
+  /* BUSCA INTEGRANTE GRUPO */
+  {
+    path: '',
+    redirectTo: '/buscaIntegrante_Grupo',
+    pathMatch: 'full',
+  },
+  {
+    path: 'buscaIntegrante_Grupo/:idGrupo',
+    component: BuscaIntegrantesGrupoComponent,
   },
 ];
 

@@ -52,6 +52,17 @@ import { AlbumService } from './servicios/album.service';
 import { CancionesService } from './servicios/canciones.service';
 import { CancionesAlbumService } from './servicios/canciones-album.service';
 
+/* Busqueda */
+import { BuscaCancionAlbumComponent } from './componentes/busca-cancion-album/busca-cancion-album.component';
+import { BuscaCancionGrupoComponent } from './componentes/busca-cancion-grupo/busca-cancion-grupo.component';
+import { BuscaAlbumGrupoComponent } from './componentes/busca-album-grupo/busca-album-grupo.component';
+import { BuscaIntegrantesGrupoComponent } from './componentes/busca-integrantes-grupo/busca-integrantes-grupo.component';
+
+import { BuscaAlbumGrupoService } from './servicios/busca-album-grupo.service';
+import { BuscaCancionAlbumService } from './servicios/busca-cancion-album.service';
+import { BuscaCancionGrupoService } from './servicios/busca-cancion-grupo.service';
+import { BuscaIntegrantesGrupoService } from './servicios/busca-integrantes-grupo.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +85,10 @@ import { CancionesAlbumService } from './servicios/canciones-album.service';
     CancionesListComponent,
     CancionesAlbumListComponent,
     CancionesAlbumFormComponent,
+    BuscaAlbumGrupoComponent,
+    BuscaCancionAlbumComponent,
+    BuscaCancionGrupoComponent,
+    BuscaIntegrantesGrupoComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +113,10 @@ import { CancionesAlbumService } from './servicios/canciones-album.service';
     AlbumService,
     CancionesService,
     CancionesAlbumService,
+    BuscaAlbumGrupoService,
+    BuscaCancionAlbumService,
+    BuscaCancionGrupoService,
+    BuscaIntegrantesGrupoService,
   ],
   bootstrap: [AppComponent],
 })

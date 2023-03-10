@@ -1,0 +1,19 @@
+img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 370px;
+}
+
+.grupo {
+  width: 100%;
+  object-fit: cover;
+  max-height: 540px;
+}
+
+@media (max-width: 1400px) and (min-width: 380px) {
+  img {
+    width: 100%;
+    object-fit: cover;
+    max-height: max-content;
+  }
+}

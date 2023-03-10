@@ -1,0 +1,104 @@
+<div class="inicio">
+  <a type="button" class="btn btn-success" href="/artista_Grupo/agregar">Agregar</a>
+  <a href="/grupo" type="button" class="btn btn-primary">Regresar</a>
+</div>
+
+<!-- <div class="col-md-4" *ngFor="let artista of artistas" style="margin-bottom: 1.5rem;">
+    <div class="card text-center">
+      <div class="card-header text-white d-flex justify-content-between align-items-center">
+        {{artista.NombreArtistico}}
+        <div class="botones">
+          <button class="btn btn-danger" (click)="borrar(artista.Codigo)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+          <a [routerLink]="['/artista_Grupo/actualizar', artista.Codigo]" class="btn btn-info btn-block"><i
+              class="fa-solid fa-pen-to-square"></i></a>
+        </div>
+      </div>
+      <img [src]="artista.Foto == '' ? '/assets/noImagen.png' : artista.Foto " alt="Imagen del Artista">
+      <div class="card-body">
+        <p style="font-weight: bold;">Periodo</p>
+        <p>{{artista.Periodo}}</p>
+        <p style="font-weight: bold;">Edad</p>
+        <p>{{artista.Edad}}</p>
+        <p style="font-weight: bold;">Instrumento que toca</p>
+        <p>{{artista.Instrumento}}</p>
+        <p style="font-weight: bold;">Tipo Voz</p>
+        <p>{{artista.TipoVoz}}</p>
+        <p style="font-weight: bold;">Nacionalidad</p>
+        <p>{{artista.Pais}}</p>
+        <a [routerLink]="['/artista/actualizar', artista.idArtista]" class="btn btn-info btn-block">Editar</a>
+      </div>
+    </div>
+  </div> -->
+
+<div class="row">
+  <div class="col-md-5 margen">
+    <div class="card card-body text-center bg-dark">
+      <img class="grupo" [src]="Grupo.Logo == '' ? '/assets/noImagen.png' : Grupo.Logo " alt="Imagen del Grupo">
+    </div>
+  </div>
+
+  <div class="col-md-7 margen">
+    <div class="card text-center bg-dark">
+      <div class="card-body text-white">
+        <div class="text-white d-flex justify-content-between align-items-center text-center">
+          <a [routerLink]="['/grupo/actualizar', Grupo.idGrupo]" class="btn btn-outline-success">Editar Grupo</a>
+        </div>
+        <!-- <p style="font-weight: bold;">Albumes</p>
+          <p>{{Grupo.Albumes}}</p>
+          <p style="font-weight: bold;">Origen</p>
+          <p>{{Grupo.Origen}}</p>
+          <p style="font-weight: bold;">Genero</p>
+          <p>{{Grupo.Genero}}</p>
+          <p style="font-weight: bold;">Inicio</p>
+          <p>{{Grupo.FechaInicio}}</p>
+          <p style="font-weight: bold;">Estado</p>
+          <p>{{Grupo.Estado}}</p>
+          <p style="font-weight: bold;">Sitio Web</p>
+          <p><a href="{{Grupo.SitioWeb}}" target="_blank">{{Grupo.SitioWeb}}</a></p> -->
+        <p style="font-weight: bold;">Grupo</p>
+        <p>{{Grupo.Nombre}}</p>
+        <p style="font-weight: bold;">Origen</p>
+        <p>{{Grupo.Origen}}</p>
+        <p style="font-weight: bold;">Genero</p>
+        <p>{{Grupo.Genero}}</p>
+        <p style="font-weight: bold;">Sellos Discograficos</p>
+        <p>{{Grupo.Sellos}}</p>
+        <p style="font-weight: bold;">Estado</p>
+        <p>{{Grupo.Estado}}</p>
+        <p style="font-weight: bold;">Sitio Web</p>
+        <p><a href="{{Grupo.SitioWeb}}" target="_blank">{{Grupo.SitioWeb}}</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4" *ngFor="let artista of artistas" style="margin-bottom: 1.5rem;">
+    <div class="card text-center">
+      <div class="card-header text-white d-flex justify-content-between align-items-center">
+        {{artista.NombreArtistico}}
+        <div class="botones">
+          <button class="btn btn-danger" (click)="borrar(artista.Codigo)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+          <a [routerLink]="['/artista_Grupo/actualizar', artista.Codigo]" class="btn btn-info btn-block"><i
+              class="fa-solid fa-pen-to-square"></i></a>
+        </div>
+      </div>
+      <img [src]="artista.Foto == '' ? '/assets/noImagen.png' : artista.Foto " alt="Imagen del Artista">
+      <div class="card-body">
+        <p style="font-weight: bold;">Periodo</p>
+        <p>{{artista.Periodo}}</p>
+        <p style="font-weight: bold;">Edad</p>
+        <p>{{artista.Edad}}</p>
+        <p style="font-weight: bold;">Instrumento que toca</p>
+        <p>{{artista.Instrumento}}</p>
+        <p style="font-weight: bold;">Tipo Voz</p>
+        <p>{{artista.TipoVoz}}</p>
+        <p style="font-weight: bold;">Nacionalidad</p>
+        <p>{{artista.Pais}}</p>
+        <a [routerLink]="['/artista/actualizar', artista.idArtista]" class="btn btn-info btn-block">Editar</a>
+      </div>
+    </div>
+
+  </div>
