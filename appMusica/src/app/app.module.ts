@@ -26,11 +26,15 @@ import { ArtistaFormComponent } from './componentes/artista-form/artista-form.co
 import { GruposFormComponent } from './componentes/grupos-form/grupos-form.component';
 import { GruposListComponent } from './componentes/grupos-list/grupos-list.component';
 
+import { ArtistaGrupoFormComponent } from './componentes/artista-grupo-form/artista-grupo-form.component';
+import { ArtistaGrupoListComponent } from './componentes/artista-grupo-list/artista-grupo-list.component';
+
 /* SERVICIOS */
 import { PaisService } from './servicios/pais.service';
 import { InstrumentosService } from './servicios/instrumentos.service';
 import { ArtistaService } from './servicios/artista.service';
 import { GruposService } from './servicios/grupos.service';
+import { ArtistaGrupoService } from './servicios/artista-grupo.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,8 @@ import { GruposService } from './servicios/grupos.service';
     ArtistaFormComponent,
     GruposFormComponent,
     GruposListComponent,
+    ArtistaGrupoFormComponent,
+    ArtistaGrupoListComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,8 @@ import { GruposService } from './servicios/grupos.service';
     PaisService,
     InstrumentosService,
     ArtistaService,
-    GruposService
+    GruposService,
+    ArtistaGrupoService
   ],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,92 @@
+<div class="col-md-5 offset-md-3 inicio">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
+
+        <!-- Artista -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Artista</label>
+            <select formControlName="idArtista" [(ngModel)]="artista_Grupo.idArtista" class="form-control"
+              id="inputGroupSelect02" autofocus>
+              <option selected disabled value="">Selecciona un Artista</option>
+              <option *ngFor="let artista of Artista" value="{{artista.idArtista}}">{{artista.NombreArtistico}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idArtista')?.hasError('required') && form.get('idArtista')?.touched">El campo ARTISTA
+            es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Grupo -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Grupo</label>
+            <select formControlName="idGrupo" [(ngModel)]="artista_Grupo.idGrupo" class="form-control"
+              id="inputGroupSelect02">
+              <option selected disabled value="">Selecciona un Grupo</option>
+              <option *ngFor="let Grupo of Grupo" value="{{Grupo.idGrupo}}">{{Grupo.Nombre}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idGrupo')?.hasError('required') && form.get('idGrupo')?.touched">El campo GRUPO es
+            <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Inicio -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Fecha de Entrada</label>
+            <input type="date" [(ngModel)]="artista_Grupo.FechaInicio" formControlName="FechaInicio"
+              class="form-control" />
+          </div>
+
+          <span *ngIf="form.get('FechaInicio')?.hasError('required') && form.get('FechaInicio')?.touched">El campo
+            INICIO es <strong>Requerido</strong></span>
+        </div>
+
+        <!-- Fin -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text">Fecha Salida</label>
+            <input type="date" [(ngModel)]="artista_Grupo.FechaFin" formControlName="FechaFin" class="form-control" />
+          </div>
+        </div>
+
+        <!-- Instrumentos -->
+        <div class="card-body">
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect02">Instrumento</label>
+            <select formControlName="idInstrumento" [(ngModel)]="artista_Grupo.idInstrumento" class="form-control"
+              id="inputGroupSelect02">
+              <option selected disabled value="">Selecciona un Instrumento</option>
+              <option *ngFor="let instrumentos of Instrumentos" value="{{instrumentos.idInstrumento}}">
+                {{instrumentos.Nombre}}</option>
+            </select>
+          </div>
+
+          <span *ngIf="form.get('idInstrumento')?.hasError('required') && form.get('idInstrumento')?.touched">El campo
+            INSTRUMENTO es <strong>Requerido</strong></span>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
+        <button routerLink="/artista_Grupo" type="button" class="btn btn-primary">Regresar</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="edit ? actualiza() : add()">Aceptar</button>
+          <a href="/artista_Grupo" type="button" class="btn btn-primary">Regresar</a> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 inicio">
+  <div class="card card-body text-center">
+    <h3 style="text-transform: uppercase;">
+      {{artista_Grupo.Codigo}} - {{artista_Grupo.idArtista == '' ? 'Artista' : artista_Grupo.idArtista}}
+    </h3>
+    <p>{{artista_Grupo.idGrupo == '' ? 'Grupo' : artista_Grupo.idGrupo}}</p>
+    <p>{{artista_Grupo.FechaInicio == ''? 'Fecha Inicio' : (artista_Grupo.FechaInicio | date: 'dd / MMMM / yyyy')}}</p>
+    <p>{{artista_Grupo.FechaFin == ''? 'Fecha Fin' : (artista_Grupo.FechaFin | date: 'dd / MMMM / yyyy')}}</p>
+    <p>{{artista_Grupo.idInstrumento == '' ? 'Instrumento' : artista_Grupo.idInstrumento}}</p>
+  </div>
+</div>

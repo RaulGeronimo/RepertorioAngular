@@ -1,0 +1,31 @@
+<div class="inicio">
+  <a type="button" class="btn btn-primary" href="/artista_Grupo/agregar">Agregar</a>
+  <a type="button" class="btn btn-success" href="/grupo">Regresar</a>
+</div>
+
+<div class="col-md-4" *ngFor="let artista of artistas" style="margin-bottom: 1.5rem;">
+  <div class="card text-center">
+    <div class="card-header text-white d-flex justify-content-between align-items-center">
+      {{artista.NombreArtistico}}
+      <button class="btn btn-danger" (click)="borrar(artista.Codigo)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img [src]="artista.Foto == '' ? '/assets/noImagen.png' : artista.Foto " alt="Imagen del Artista">
+    <div class="card-body">
+      <p style="font-weight: bold;">Fecha Nacimiento</p>
+      <p>{{artista.FechaNacimiento}}</p>
+      <p style="font-weight: bold;">Edad</p>
+      <p>{{artista.Edad}}</p>
+      <p style="font-weight: bold;">Instrumento que toca</p>
+      <p>{{artista.Instrumento}}</p>
+      <p style="font-weight: bold;">Tipo Voz</p>
+      <p>{{artista.TipoVoz}}</p>
+      <p style="font-weight: bold;">Grupo</p>
+      <p>{{artista.Grupo}}</p>
+      <p style="font-weight: bold;">Periodo de Actividad</p>
+      <p>{{artista.Periodo}}</p>
+      <a [routerLink]="['/artista_Grupo/actualizar', artista.Codigo]" class="btn btn-info btn-block">Editar</a>
+    </div>
+  </div>
+</div>

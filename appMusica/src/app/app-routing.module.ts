@@ -8,15 +8,36 @@ import { PaisListComponent } from './componentes/pais-list/pais-list.component';
 import { InstrumentoListComponent } from './componentes/instrumento-list/instrumento-list.component';
 import { ArtistaListComponent } from './componentes/artista-list/artista-list.component';
 import { GruposListComponent } from './componentes/grupos-list/grupos-list.component';
+import { ArtistaGrupoListComponent } from './componentes/artista-grupo-list/artista-grupo-list.component';
 
 //Importamos los Formularios
 import { PaisFormComponent } from './componentes/pais-form/pais-form.component';
 import { InstrumentoFormComponent } from './componentes/instrumento-form/instrumento-form.component';
 import { ArtistaFormComponent } from './componentes/artista-form/artista-form.component';
 import { GruposFormComponent } from './componentes/grupos-form/grupos-form.component';
+import { ArtistaGrupoFormComponent } from './componentes/artista-grupo-form/artista-grupo-form.component';
 
 const routes: Routes = [
   //Creacion de los Objetos
+  /* ARTISTA GRUPO */
+  {
+    path: '',
+    redirectTo: '/artista_Grupo',
+    pathMatch: 'full'
+  },
+  {
+    path: 'artista_Grupo', //Se creo la ruta para abrir un componente
+    component: ArtistaGrupoListComponent
+  },
+  {
+    path: 'artista_Grupo/agregar',
+    component: ArtistaGrupoFormComponent,
+  },
+  {
+    path: 'artista_Grupo/actualizar/:Codigo',
+    component: ArtistaGrupoFormComponent
+  },
+  
   /* GRUPOS */
   {
     path: '',
@@ -35,7 +56,7 @@ const routes: Routes = [
     path: 'grupo/actualizar/:idGrupo',
     component: GruposFormComponent
   },
-  
+
   /* ARTISTA */
   {
     path: '',
