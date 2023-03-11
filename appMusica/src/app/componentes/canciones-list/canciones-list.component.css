@@ -4,18 +4,22 @@
   }
 
   td:nth-of-type(2):before {
-    content: "Duración";
+    content: "Grupo";
   }
 
   td:nth-of-type(3):before {
-    content: "Publicación";
+    content: "Duración";
   }
 
   td:nth-of-type(4):before {
-    content: "Genero";
+    content: "Publicación";
   }
 
   td:nth-of-type(5):before {
+    content: "Genero";
+  }
+
+  td:nth-of-type(6):before {
     content: "Acciones";
   }
 }

@@ -311,13 +311,13 @@ SELECT
 Canciones.idCancion,
 /* Canciones.Nombre, */
 CASE
-WHEN Canciones.Interpretacion = 'Demo' THEN CONCAT(Canciones.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
+WHEN Canciones.Interpretacion <> 'Original' THEN CONCAT(Canciones.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
 ELSE Canciones.Nombre
 END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%d / %M / %Y") AS Publicacion,
 CASE
-WHEN Canciones.Interpretacion = 'Demo' THEN CONCAT(Canciones.Nombre, ' - ', Grupo.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
+WHEN Canciones.Interpretacion <> 'Original' THEN CONCAT(Canciones.Nombre, ' - ', Grupo.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
 ELSE CONCAT_WS(' - ', Canciones.Nombre, Grupo.Nombre) 
 END AS Cancion,
 Canciones.Genero,
@@ -340,7 +340,7 @@ Album.Nombre AS Album,
 Canciones_Album.Numero,
 /* Canciones.Nombre, */
 CASE
-WHEN Canciones.Interpretacion = 'Demo' THEN CONCAT(Canciones.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
+WHEN Canciones.Interpretacion <> 'Original' THEN CONCAT(Canciones.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
 ELSE Canciones.Nombre
 END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
@@ -361,7 +361,10 @@ SELECT
 Canciones.idCancion,
 Grupo.idGrupo,
 Grupo.Nombre AS Grupo,
-Canciones.Nombre,
+CASE
+WHEN Canciones.Interpretacion <> 'Original' THEN CONCAT(Canciones.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
+ELSE Canciones.Nombre
+END AS Nombre,
 GROUP_CONCAT(album.Nombre separator ', ') AS Albums,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%d / %M / %Y") AS Publicacion,

@@ -21,9 +21,9 @@
         <!-- Grupo -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text" for="inputGroupSelect02">Grupo</label>
+            <label class="input-group-text" for="inputGroupSelect01">Grupo</label>
             <select formControlName="idGrupo" [(ngModel)]="artista_Grupo.idGrupo" class="form-control"
-              id="inputGroupSelect02">
+              id="inputGroupSelect01">
               <option selected disabled value="">Selecciona un Grupo</option>
               <option *ngFor="let Grupo of Grupo" value="{{Grupo.idGrupo}}">{{Grupo.Nombre}}</option>
             </select>
@@ -36,8 +36,8 @@
         <!-- Inicio -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Fecha de Entrada</label>
-            <input type="date" [(ngModel)]="artista_Grupo.FechaInicio" formControlName="FechaInicio"
+            <label for="Entrada" class="input-group-text">Fecha de Entrada</label>
+            <input id="Entrada" type="date" [(ngModel)]="artista_Grupo.FechaInicio" formControlName="FechaInicio"
               class="form-control" />
           </div>
 
@@ -48,17 +48,18 @@
         <!-- Fin -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Fecha Salida</label>
-            <input type="date" [(ngModel)]="artista_Grupo.FechaFin" formControlName="FechaFin" class="form-control" />
+            <label for="Salida" class="input-group-text">Fecha Salida</label>
+            <input id="Salida" type="date" [(ngModel)]="artista_Grupo.FechaFin" formControlName="FechaFin"
+              class="form-control" />
           </div>
         </div>
 
         <!-- Instrumentos -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text" for="inputGroupSelect02">Instrumento</label>
+            <label class="input-group-text" for="inputGroupSelect03">Instrumento</label>
             <select formControlName="idInstrumento" [(ngModel)]="artista_Grupo.idInstrumento" class="form-control"
-              id="inputGroupSelect02">
+              id="inputGroupSelect03">
               <option selected disabled value="">Selecciona un Instrumento</option>
               <option *ngFor="let instrumentos of Instrumentos" value="{{instrumentos.idInstrumento}}">
                 {{instrumentos.Nombre}}</option>

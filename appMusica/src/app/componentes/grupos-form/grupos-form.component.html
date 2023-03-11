@@ -33,8 +33,9 @@
         <!-- Inicio -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Inicio del Grupo</label>
-            <input type="date" [(ngModel)]="grupo.Inicio" formControlName="Inicio" class="form-control" />
+            <label for="inputInicio" class="input-group-text">Inicio del Grupo</label>
+            <input id="inputInicio" type="date" [(ngModel)]="grupo.Inicio" formControlName="Inicio"
+              class="form-control" />
           </div>
 
           <span *ngIf="form.get('Inicio')?.hasError('required') && form.get('Inicio')?.touched">El campo INICIO es
@@ -44,8 +45,8 @@
         <!-- Fin -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Fin del Grupo</label>
-            <input type="date" [(ngModel)]="grupo.Fin" formControlName="Fin" class="form-control" />
+            <label for="inputFin" class="input-group-text">Fin del Grupo</label>
+            <input id="inputFin" type="date" [(ngModel)]="grupo.Fin" formControlName="Fin" class="form-control" />
           </div>
         </div>
 
@@ -62,7 +63,7 @@
         <div class="card-body">
           <div class="input-group">
             <label class="input-group-text" for="actividad">Estado</label>
-            <select formControlName="Estado" [(ngModel)]="grupo.Estado" class="form-control" id="actividad" autofocus>
+            <select formControlName="Estado" [(ngModel)]="grupo.Estado" class="form-control" id="actividad">
               <option selected disabled value="">Estado del Grupo</option>
               <option value="Activo">Activo</option>
               <option value="Disuelto">Disuelto</option>

@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-instrumento-form',
   templateUrl: './instrumento-form.component.html',
-  styleUrls: ['./instrumento-form.component.css']
+  styleUrls: ['./instrumento-form.component.css'],
 })
 export class InstrumentoFormComponent implements OnInit {
   form: FormGroup;

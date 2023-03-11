@@ -39,8 +39,8 @@
         <!-- Nacimiento -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Fecha de Nacimiento</label>
-            <input type="date" [(ngModel)]="artista.FechaNacimiento" formControlName="FechaNacimiento"
+            <label for="Nacimiento" class="input-group-text">Fecha de Nacimiento</label>
+            <input id="Nacimiento" type="date" [(ngModel)]="artista.FechaNacimiento" formControlName="FechaNacimiento"
               class="form-control" />
           </div>
 
@@ -51,8 +51,9 @@
         <!-- Finado -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Fecha de Finado</label>
-            <input type="date" [(ngModel)]="artista.FechaFinado" formControlName="FechaFinado" class="form-control" />
+            <label for="Finado" class="input-group-text">Fecha de Finado</label>
+            <input id="Finado" type="date" [(ngModel)]="artista.FechaFinado" formControlName="FechaFinado"
+              class="form-control" />
           </div>
         </div>
 

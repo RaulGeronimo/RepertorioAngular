@@ -4,7 +4,7 @@
   }
 
   td:nth-of-type(2):before {
-    content: "Álbum";
+    content: "Álbums";
   }
 
   td:nth-of-type(3):before {

@@ -24,8 +24,9 @@
         <!-- Fundacion -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Fecha de Fundacion</label>
-            <input type="date" [(ngModel)]="disquera.Fundacion" formControlName="Fundacion" class="form-control" />
+            <label for="input-Disquera" class="input-group-text">Fecha de Fundacion</label>
+            <input id="input-Disquera" type="date" [(ngModel)]="disquera.Fundacion" formControlName="Fundacion"
+              class="form-control" />
           </div>
 
           <span *ngIf="form.get('Fundacion')?.hasError('required') && form.get('Fundacion')?.touched">El campo FUNDACION

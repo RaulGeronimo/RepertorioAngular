@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-pais-form',
   templateUrl: './pais-form.component.html',
-  styleUrls: ['./pais-form.component.css']
+  styleUrls: ['./pais-form.component.css'],
 })
 export class PaisFormComponent implements OnInit {
   form: FormGroup;

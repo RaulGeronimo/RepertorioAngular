@@ -29,9 +29,9 @@
         <!-- Disquera -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text" for="inputGroupSelect02">Disquera</label>
+            <label class="input-group-text" for="inputGroupSelect01">Disquera</label>
             <select formControlName="idDisquera" [(ngModel)]="album.idDisquera" class="form-control"
-              id="inputGroupSelect02">
+              id="inputGroupSelect01">
               <option selected disabled value="">Selecciona una Disquera</option>
               <option *ngFor="let disquera of Disquera" value="{{disquera.idDisquera}}">{{disquera.Nombre}}</option>
             </select>
@@ -44,8 +44,9 @@
         <!-- Duracion -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Duracion</label>
-            <input type="time" step="2" [(ngModel)]="album.Duracion" formControlName="Duracion" class="form-control">
+            <label for="Duracion" class="input-group-text">Duracion</label>
+            <input id="Duracion" type="time" step="2" [(ngModel)]="album.Duracion" formControlName="Duracion"
+              class="form-control">
           </div>
 
           <span *ngIf="form.get('Duracion')?.hasError('required') && form.get('Duracion')?.touched">El campo DURACION es
@@ -55,8 +56,9 @@
         <!-- Lanzamiento -->
         <div class="card-body">
           <div class="input-group">
-            <label class="input-group-text">Fecha de Lanzamiento</label>
-            <input type="date" [(ngModel)]="album.Lanzamiento" formControlName="Lanzamiento" class="form-control" />
+            <label for="Lanzamiento" class="input-group-text">Fecha de Lanzamiento</label>
+            <input id="Lanzamiento" type="date" [(ngModel)]="album.Lanzamiento" formControlName="Lanzamiento"
+              class="form-control" />
           </div>
 
           <span *ngIf="form.get('Lanzamiento')?.hasError('required') && form.get('Lanzamiento')?.touched">El campo

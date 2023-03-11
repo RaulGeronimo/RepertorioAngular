@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-instrumento-list',
   templateUrl: './instrumento-list.component.html',
-  styleUrls: ['./instrumento-list.component.css']
+  styleUrls: ['./instrumento-list.component.css'],
 })
 export class InstrumentoListComponent implements OnInit {
   //Se importa el HostBinding
