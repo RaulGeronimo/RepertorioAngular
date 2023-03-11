@@ -404,7 +404,18 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE `obtener_cancionesAlbum`(IN idAlbumA INT)
 BEGIN
-SELECT * FROM Vista_CancionesAlbum WHERE idAlbum = idAlbumA ORDER BY Numero;
+    SELECT 
+        Codigo, 
+        idCancion, 
+        idAlbum, 
+        Album, 
+        Numero, 
+        GROUP_CONCAT(Nombre separator ' / ') AS Nombre,
+        DATE_FORMAT(sec_to_time(SUM(time_to_sec(Duracion))), "%H:%i")  AS Duracion,
+        Publicacion,
+        Genero,
+        Idioma
+    FROM Vista_CancionesAlbum WHERE idAlbum = idAlbumA GROUP BY Numero ORDER BY Numero;
 END$$
 
 DELIMITER ;
