@@ -66,7 +66,7 @@ INSERT INTO Canciones VALUES
 (NULL, 'Smells Like Teen Spirit', '00:05:01', '1991-09-10', 'Grunge, rock alternativo, hard rock', 'Ingles', 'Original', 1),
 (NULL, 'About a Girl', '00:02:49', '1989-10-24', 'Rock alternativo', 'Ingles', 'Original', 1),
 
-(NULL, 'Walk ', '00:04:19', '2011-06-06', '	Rock alternativo, post-grunge y hard rock', 'Ingles', 'Original', 2),
+(NULL, 'Walk ', '00:04:19', '2011-06-06', 'Rock alternativo, post-grunge y hard rock', 'Ingles', 'Original', 2),
 
 (NULL, 'American Idiot', '00:02:54', '2004-08-31', 'Pop punk', 'Ingles', 'Original', 3),
 (NULL, 'Whatsername', '00:04:12', '2004-09-20', 'Rock alternativo', 'Ingles', 'Original', 3),
