@@ -1,36 +1,16 @@
-<div class="inicio">
+<!-- <div class="inicio">
   <a type="button" class="btn btn-success" href="/artista_Grupo/agregar">Agregar</a>
   <a href="/grupo" type="button" class="btn btn-primary">Regresar</a>
-</div>
+</div> -->
 
-<!-- <div class="col-md-4" *ngFor="let artista of artistas" style="margin-bottom: 1.5rem;">
-    <div class="card text-center">
-      <div class="card-header text-white d-flex justify-content-between align-items-center">
-        {{artista.NombreArtistico}}
-        <div class="botones">
-          <button class="btn btn-danger" (click)="borrar(artista.Codigo)">
-            <i class="far fa-trash-alt"></i>
-          </button>
-          <a [routerLink]="['/artista_Grupo/actualizar', artista.Codigo]" class="btn btn-info btn-block"><i
-              class="fa-solid fa-pen-to-square"></i></a>
-        </div>
-      </div>
-      <img [src]="artista.Foto == '' ? '/assets/noImagen.png' : artista.Foto " alt="Imagen del Artista">
-      <div class="card-body">
-        <p style="font-weight: bold;">Periodo</p>
-        <p>{{artista.Periodo}}</p>
-        <p style="font-weight: bold;">Edad</p>
-        <p>{{artista.Edad}}</p>
-        <p style="font-weight: bold;">Instrumento que toca</p>
-        <p>{{artista.Instrumento}}</p>
-        <p style="font-weight: bold;">Tipo Voz</p>
-        <p>{{artista.TipoVoz}}</p>
-        <p style="font-weight: bold;">Nacionalidad</p>
-        <p>{{artista.Pais}}</p>
-        <a [routerLink]="['/artista/actualizar', artista.idArtista]" class="btn btn-info btn-block">Editar</a>
-      </div>
-    </div>
-  </div> -->
+<div class="inicio input-group flex-nowrap">
+  <a type="button" class="btn btn-success" href="/artista_Grupo/agregar">Agregar</a>
+  <a href="/grupo" type="button" class="btn btn-primary">Regresar</a>
+
+  <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+  <input type="text" class="form-control bg-dark text-white" placeholder="Buscar" aria-label="Username"
+    aria-describedby="addon-wrapping" [(ngModel)]="search">
+</div>
 
 <div class="row">
   <div class="col-md-5 margen">
@@ -45,18 +25,6 @@
         <div class="text-white d-flex justify-content-between align-items-center text-center">
           <a [routerLink]="['/grupo/actualizar', Grupo.idGrupo]" class="btn btn-outline-success">Editar Grupo</a>
         </div>
-        <!-- <p style="font-weight: bold;">Albumes</p>
-          <p>{{Grupo.Albumes}}</p>
-          <p style="font-weight: bold;">Origen</p>
-          <p>{{Grupo.Origen}}</p>
-          <p style="font-weight: bold;">Genero</p>
-          <p>{{Grupo.Genero}}</p>
-          <p style="font-weight: bold;">Inicio</p>
-          <p>{{Grupo.FechaInicio}}</p>
-          <p style="font-weight: bold;">Estado</p>
-          <p>{{Grupo.Estado}}</p>
-          <p style="font-weight: bold;">Sitio Web</p>
-          <p><a href="{{Grupo.SitioWeb}}" target="_blank">{{Grupo.SitioWeb}}</a></p> -->
         <p style="font-weight: bold;">Grupo</p>
         <p>{{Grupo.Nombre}}</p>
         <p style="font-weight: bold;">Origen</p>
@@ -73,7 +41,7 @@
     </div>
   </div>
 
-  <div class="col-md-4" *ngFor="let artista of artistas" style="margin-bottom: 1.5rem;">
+  <div class="col-md-4" *ngFor="let artista of artistas | filter:search" style="margin-bottom: 1.5rem;">
     <div class="card text-center">
       <div class="card-header text-white d-flex justify-content-between align-items-center">
         {{artista.NombreArtistico}}

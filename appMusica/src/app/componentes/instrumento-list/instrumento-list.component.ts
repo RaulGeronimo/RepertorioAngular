@@ -14,6 +14,7 @@ export class InstrumentoListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   //Creamos el arreglo vacio llamado paises
   instrumentos: any = [];
+  search: any;
 
   constructor(
     private instrumentosService: InstrumentosService,

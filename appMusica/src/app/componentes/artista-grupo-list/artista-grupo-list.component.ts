@@ -14,6 +14,7 @@ export class ArtistaGrupoListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   //Creamos el arreglo vacio llamado artistas
   artistas: any = [];
+  search: any;
 
   constructor(
     private Service: ArtistaGrupoService,

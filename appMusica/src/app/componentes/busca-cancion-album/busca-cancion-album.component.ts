@@ -19,6 +19,7 @@ export class BuscaCancionAlbumComponent implements OnInit {
   //Creamos el arreglo vacio llamado Canciones
   Canciones: any = [];
   Album: any = [];
+  search: any;
 
   constructor(
     private Service: BuscaCancionAlbumService,

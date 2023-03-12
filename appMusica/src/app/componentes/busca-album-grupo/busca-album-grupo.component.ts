@@ -19,6 +19,7 @@ export class BuscaAlbumGrupoComponent {
   //Creamos el arreglo vacio llamado Canciones
   Album: any = [];
   Grupo: any = [];
+  search: any;
 
   constructor(
     private Service: BuscaAlbumGrupoService,

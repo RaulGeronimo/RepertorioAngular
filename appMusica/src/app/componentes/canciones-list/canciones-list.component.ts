@@ -14,7 +14,8 @@ export class CancionesListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   //Creamos el arreglo vacio llamado Canciones
   Canciones: any = [];
-
+  search: any;
+  
   constructor(
     private Service: CancionesService,
     private toastr: ToastrService

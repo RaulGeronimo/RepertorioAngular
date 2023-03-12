@@ -1,6 +1,15 @@
-<div class="inicio">
+<!-- <div class="inicio">
   <a type="button" class="btn btn-success" href="/album/agregar">Agregar</a>
   <a href="/grupo" type="button" class="btn btn-primary">Regresar</a>
+</div> -->
+
+<div class="inicio input-group flex-nowrap">
+  <a type="button" class="btn btn-success" href="/album/agregar">Agregar</a>
+  <a href="/grupo" type="button" class="btn btn-primary">Regresar</a>
+
+  <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+  <input type="text" class="form-control bg-dark text-white" placeholder="Buscar" aria-label="Username"
+    aria-describedby="addon-wrapping" [(ngModel)]="search">
 </div>
 
 <!-- <div class="col-md-4" *ngFor="let album of Album" style="margin-bottom: 1.5rem;">
@@ -74,7 +83,7 @@
     </div>
   </div>
 
-  <div class="col-md-4" *ngFor="let album of Album" style="margin-bottom: 1.5rem;">
+  <div class="col-md-4" *ngFor="let album of Album | filter:search" style="margin-bottom: 1.5rem;">
     <div class="card text-center">
       <div class="card-header text-white d-flex justify-content-between align-items-center">
         {{album.Nombre}}

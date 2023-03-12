@@ -14,6 +14,7 @@ export class DisqueraListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   //Creamos el arreglo vacio llamado Grupos
   Disqueras: any = [];
+  search: any;
 
   constructor(
     private Service: DisqueraService,

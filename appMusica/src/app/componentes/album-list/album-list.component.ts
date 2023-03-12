@@ -14,6 +14,7 @@ export class AlbumListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   //Creamos el arreglo vacio llamado artistas
   Albums: any = [];
+  search: any;
 
   constructor(private Service: AlbumService, private toastr: ToastrService) {}
 

@@ -14,6 +14,7 @@ export class GruposListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   //Creamos el arreglo vacio llamado Grupos
   Grupos: any = [];
+  search: any;
 
   constructor(private Service: GruposService, private toastr: ToastrService) {}
 

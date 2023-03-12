@@ -1,8 +1,16 @@
-<div class="inicio">
+<!-- <div class="inicio">
   <a type="button" class="btn btn-primary" href="/instrumento/agregar">Agregar</a>
+</div> -->
+
+<div class="inicio input-group flex-nowrap">
+  <a type="button" class="btn btn-primary" href="/instrumento/agregar">Agregar</a>
+
+  <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+  <input type="text" class="form-control bg-dark text-white" placeholder="Buscar" aria-label="Username"
+    aria-describedby="addon-wrapping" [(ngModel)]="search">
 </div>
 
-<div class="col-md-4" *ngFor="let instrumento of instrumentos" style="margin-bottom: 1.5rem;">
+<div class="col-md-4" *ngFor="let instrumento of instrumentos | filter:search" style="margin-bottom: 1.5rem;">
   <div class="card text-center">
     <div class="card-header text-white d-flex justify-content-between align-items-center">
       {{instrumento.Nombre}}

@@ -1,5 +1,13 @@
-<div class="inicio">
+<!-- <div class="inicio">
   <a type="button" class="btn btn-primary" href="/canciones_Album/agregar">Agregar</a>
+</div> -->
+
+<div class="inicio input-group flex-nowrap">
+  <a type="button" class="btn btn-primary" href="/canciones_Album/agregar">Agregar</a>
+
+  <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+  <input type="text" class="form-control bg-dark text-white" placeholder="Buscar" aria-label="Username"
+    aria-describedby="addon-wrapping" [(ngModel)]="search">
 </div>
 
 <table class="resp">
@@ -13,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let canciones of Canciones">
+    <tr *ngFor="let canciones of Canciones | filter:search">
       <td>{{canciones.Nombre}}</td>
       <td>{{canciones.Album}}</td>
       <td>{{canciones.Duracion}}</td>

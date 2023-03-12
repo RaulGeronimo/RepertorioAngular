@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './componentes/navigation/navigation.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 /* APARTADOS */
 import { PaisListComponent } from './componentes/pais-list/pais-list.component';
@@ -102,6 +103,7 @@ import { BuscaIntegrantesGrupoService } from './servicios/busca-integrantes-grup
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    Ng2SearchPipeModule
   ],
   providers: [
     PaisService,

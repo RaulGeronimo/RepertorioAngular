@@ -14,6 +14,7 @@ export class PaisListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   //Creamos el arreglo vacio llamado paises
   paises: any = [];
+  search: any;
 
   constructor(
     private paisService: PaisService,
