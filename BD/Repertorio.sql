@@ -96,7 +96,6 @@ CREATE TABLE Canciones(
     Duracion TIME,
     Publicacion DATE,
     Genero VARCHAR(100),
-    Idioma VARCHAR(50),
     Interpretacion VARCHAR(50), /* cover, original, remake */
     idGrupo INT,
     FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo) ON UPDATE CASCADE ON DELETE CASCADE
@@ -321,7 +320,6 @@ WHEN Canciones.Interpretacion <> 'Original' THEN CONCAT(Canciones.Nombre, ' - ',
 ELSE CONCAT_WS(' - ', Canciones.Nombre, Grupo.Nombre) 
 END AS Cancion,
 Canciones.Genero,
-Canciones.Idioma,
 Canciones.Interpretacion,
 Grupo.Nombre AS Grupo
 FROM Canciones
@@ -345,8 +343,7 @@ ELSE Canciones.Nombre
 END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Publicacion, "%d / %M / %Y") AS Publicacion,
-Canciones.Genero,
-Idioma
+Canciones.Genero
 FROM Canciones
 INNER JOIN Canciones_Album
 ON Canciones.idCancion = Canciones_Album.idCancion
@@ -369,7 +366,6 @@ GROUP_CONCAT(album.Nombre separator ', ') AS Albums,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%Y") AS Publicacion,
 Canciones.Genero,
-Canciones.Idioma,
 Canciones.Interpretacion
 FROM Canciones
 LEFT JOIN Grupo
@@ -413,8 +409,7 @@ BEGIN
         GROUP_CONCAT(Nombre separator ' / ') AS Nombre,
         DATE_FORMAT(sec_to_time(SUM(time_to_sec(Duracion))), "%H:%i")  AS Duracion,
         Publicacion,
-        Genero,
-        Idioma
+        Genero
     FROM Vista_CancionesAlbum WHERE idAlbum = idAlbumA GROUP BY Numero ORDER BY Numero;
 END$$
 

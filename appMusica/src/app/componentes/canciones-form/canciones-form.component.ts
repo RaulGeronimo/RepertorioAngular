@@ -24,7 +24,6 @@ export class CancionesFormComponent implements OnInit {
     Duracion: '',
     Publicacion: '',
     Genero: '',
-    Idioma: '',
     Interpretacion: '',
     idGrupo: '',
   };
@@ -45,7 +44,6 @@ export class CancionesFormComponent implements OnInit {
       Duracion: ['', Validators.required],
       Publicacion: ['', Validators.required],
       Genero: ['', Validators.required],
-      Idioma: ['', Validators.required],
       Interpretacion: ['', Validators.required],
       idGrupo: ['', Validators.required],
     });

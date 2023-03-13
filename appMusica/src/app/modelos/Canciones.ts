@@ -5,7 +5,6 @@ export interface Cancion{
     Duracion?: string;
     Publicacion?: string;
     Genero?: string;
-    Idioma?: string;
     Interpretacion?: string;
     idGrupo?: string;
 }

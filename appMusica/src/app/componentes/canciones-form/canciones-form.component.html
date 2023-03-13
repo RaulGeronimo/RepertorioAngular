@@ -46,26 +46,6 @@
             <strong>Requerido</strong></span>
         </div>
 
-        <!-- Idioma -->
-        <div class="card-body">
-          <div class="input-group">
-            <label class="input-group-text" for="idioma">Idioma</label>
-            <select formControlName="Idioma" [(ngModel)]="cancion.Idioma" class="form-control" id="idioma">
-              <option selected disabled value="">Selecciona el Idioma</option>
-              <option value="Aleman">Alemán</option>
-              <option value="Coreano">Coreano</option>
-              <option value="Español">Español</option>
-              <option value="Frances">Francés</option>
-              <option value="Ingles">Inglés</option>
-              <option value="Italiano">Italiano</option>
-              <option value="Latin">Latín</option>
-            </select>
-          </div>
-
-          <span *ngIf="form.get('Idioma')?.hasError('required') && form.get('Idioma')?.touched">El campo IDIOMA es
-            <strong>Requerido</strong></span>
-        </div>
-
         <!-- Interpretacion -->
         <div class="card-body">
           <div class="input-group">

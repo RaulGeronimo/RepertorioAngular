@@ -62,19 +62,19 @@ INSERT INTO Album VALUES
 (NULL, 4, 4, 'One More Light', '00:35:19', '2017-05-19', 'Noviembre de 2015-febrero de 2017', 'Pop, pop rock, electropop , Rock electrónico', 'https://ocdn.eu/images/pulscms/YzY7MDA_/85d9ab2d8707de5ea7705a70e4bb8727.jpeg');
 
 INSERT INTO Canciones VALUES
-(NULL, 'Come As You Are', '00:03:38', '1992-03-03', 'Grunge, rock alternativo', 'Ingles', 'Original', 1),
-(NULL, 'Smells Like Teen Spirit', '00:05:01', '1991-09-10', 'Grunge, rock alternativo, hard rock', 'Ingles', 'Original', 1),
-(NULL, 'About a Girl', '00:02:49', '1989-10-24', 'Rock alternativo', 'Ingles', 'Original', 1),
+(NULL, 'Come As You Are', '00:03:38', '1992-03-03', 'Grunge, rock alternativo', 'Original', 1),
+(NULL, 'Smells Like Teen Spirit', '00:05:01', '1991-09-10', 'Grunge, rock alternativo, hard rock', 'Original', 1),
+(NULL, 'About a Girl', '00:02:49', '1989-10-24', 'Rock alternativo', 'Original', 1),
 
-(NULL, 'Walk ', '00:04:19', '2011-06-06', 'Rock alternativo, post-grunge y hard rock', 'Ingles', 'Original', 2),
+(NULL, 'Walk ', '00:04:19', '2011-06-06', 'Rock alternativo, post-grunge y hard rock', 'Original', 2),
 
-(NULL, 'American Idiot', '00:02:54', '2004-08-31', 'Pop punk', 'Ingles', 'Original', 3),
-(NULL, 'Whatsername', '00:04:12', '2004-09-20', 'Rock alternativo', 'Ingles', 'Original', 3),
+(NULL, 'American Idiot', '00:02:54', '2004-08-31', 'Pop punk', 'Original', 3),
+(NULL, 'Whatsername', '00:04:12', '2004-09-20', 'Rock alternativo', 'Original', 3),
 
-(NULL, 'Given up', '00:03:09', '2008-03-03', 'Metal alternativo, punk rock, hardcore punk, Post-Hardcore', 'Ingles', 'Original', 4),
-(NULL, 'What I''ve Done', '00:03:27', '2007-04-02', 'Rock alternativo, Hard rock', 'Ingles', 'Original', 4),
-(NULL, 'In the End', '00:03:37', '2001-10-09', 'Nu metal, rap rock, rock alternativo', 'Ingles', 'Original', 4),
-(NULL, 'One More Light', '00:04:15', '2017-10-03', 'Rock electrónico, balada', 'Ingles', 'Original', 4);
+(NULL, 'Given up', '00:03:09', '2008-03-03', 'Metal alternativo, punk rock, hardcore punk, Post-Hardcore', 'Original', 4),
+(NULL, 'What I''ve Done', '00:03:27', '2007-04-02', 'Rock alternativo, Hard rock', 'Original', 4),
+(NULL, 'In the End', '00:03:37', '2001-10-09', 'Nu metal, rap rock, rock alternativo', 'Original', 4),
+(NULL, 'One More Light', '00:04:15', '2017-10-03', 'Rock electrónico, balada', 'Original', 4);
 
 INSERT INTO Canciones_Album VALUES
 (NULL, 2, 1,3),
