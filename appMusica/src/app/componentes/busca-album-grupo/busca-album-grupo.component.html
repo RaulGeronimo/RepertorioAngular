@@ -12,36 +12,6 @@
     aria-describedby="addon-wrapping" [(ngModel)]="search">
 </div>
 
-<!-- <div class="col-md-4" *ngFor="let album of Album" style="margin-bottom: 1.5rem;">
-    <div class="card text-center">
-      <div class="card-header text-white d-flex justify-content-between align-items-center">
-        {{album.Nombre}}
-        <div class="botones">
-          <button class="btn btn-danger" (click)="borrar(album.idAlbum)">
-            <i class="far fa-trash-alt"></i>
-          </button>
-          <a target="_blank" [routerLink]="['/buscaCancion_Album', album.idAlbum]" class="btn btn-success btn-block">
-            <i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
-        </div>
-  
-      </div>
-      <img [src]="album.Portada == '' ? '/assets/noImagen.png' : album.Portada " alt="Imagen del Album">
-      <div class="card-body">
-        <p style="font-weight: bold;">Grabacion</p>
-        <p>{{album.Grabacion}}</p>
-        <p style="font-weight: bold;">Canciones</p>
-        <p>{{album.Canciones}}</p>
-        <p style="font-weight: bold;">Duración</p>
-        <p>{{album.Duracion}}</p>
-        <p style="font-weight: bold;">Lanzamiento</p>
-        <p>{{album.Lanzamiento}}</p>
-        <p style="font-weight: bold;">Disquera</p>
-        <p>{{album.Disquera}}</p>
-        <a [routerLink]="['/album/actualizar', album.idAlbum]" class="btn btn-info btn-block">Editar</a>
-      </div>
-    </div>
-  </div> -->
-
 <div class="row">
   <div class="col-md-5 margen">
     <div class="card card-body text-center bg-dark">
@@ -55,18 +25,6 @@
         <div class="text-white d-flex justify-content-between align-items-center text-center">
           <a [routerLink]="['/grupo/actualizar', Grupo.idGrupo]" class="btn btn-outline-success">Editar Grupo</a>
         </div>
-        <!-- <p style="font-weight: bold;">Albumes</p>
-          <p>{{Grupo.Albumes}}</p>
-          <p style="font-weight: bold;">Origen</p>
-          <p>{{Grupo.Origen}}</p>
-          <p style="font-weight: bold;">Genero</p>
-          <p>{{Grupo.Genero}}</p>
-          <p style="font-weight: bold;">Inicio</p>
-          <p>{{Grupo.FechaInicio}}</p>
-          <p style="font-weight: bold;">Estado</p>
-          <p>{{Grupo.Estado}}</p>
-          <p style="font-weight: bold;">Sitio Web</p>
-          <p><a href="{{Grupo.SitioWeb}}" target="_blank">{{Grupo.SitioWeb}}</a></p> -->
         <p style="font-weight: bold;">Grupo</p>
         <p>{{Grupo.Nombre}}</p>
         <p style="font-weight: bold;">Origen</p>

@@ -9,12 +9,3 @@ exports.default = {
         port: 33065
     }
 };
-/* export default{
-    database: {
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'Repertorio',
-        port: 3306
-    }
-} */ 

@@ -12,33 +12,6 @@
     aria-describedby="addon-wrapping" [(ngModel)]="search">
 </div>
 
-<!-- <table class="resp">
-    <thead>
-      <tr>
-        <th scope="col">Número</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Duración</th>
-        <th scope="col">Publicación</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let Canciones of Canciones">
-        <td>{{Canciones.Numero}}</td>
-        <td>{{Canciones.Nombre}}</td>
-        <td>{{Canciones.Duracion}}</td>
-        <td>{{Canciones.Publicacion}}</td>
-        <td>
-          <a [routerLink]="['/canciones_Album/actualizar', Canciones.Codigo]" class="btn btn-info btn-block"><i
-              class="fa-solid fa-pen-to-square"></i></a>
-          <button class="btn btn-danger" (click)="borrar(Canciones.Codigo)">
-            <i class="far fa-trash-alt"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
-
 <div class="row">
   <div class="col-md-5 margen">
     <div class="card card-body text-center bg-dark">
@@ -52,18 +25,6 @@
         <div class="text-white d-flex justify-content-between align-items-center text-center">
           <a [routerLink]="['/album/actualizar', Album.idAlbum]" class="btn btn-outline-success">Editar Album</a>
         </div>
-        <!-- <p style="font-weight: bold;">Grupo</p>
-          <p>{{Album.Grupo}}</p>
-          <p style="font-weight: bold;">Canciones</p>
-          <p>{{Album.Canciones}}</p>
-          <p style="font-weight: bold;">Duración</p>
-          <p>{{Album.DuracionF}}</p>
-          <p style="font-weight: bold;">Lanzamiento</p>
-          <p>{{Album.FechaLanzamiento}}</p>
-          <p style="font-weight: bold;">Disquera</p>
-          <p>{{Album.Disquera}}</p>
-          <p style="font-weight: bold;">Grabacion</p>
-          <p>{{Album.Grabacion}}</p> -->
         <p style="font-weight: bold;">Álbum</p>
         <p>{{Album.Nombre}}</p>
         <p style="font-weight: bold;">Duración</p>
