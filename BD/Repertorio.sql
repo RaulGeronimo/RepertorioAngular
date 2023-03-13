@@ -281,7 +281,6 @@ Album.idDisquera,
 Grupo.Nombre AS Grupo,
 Disquera.Nombre AS Disquera,
 Album.Nombre AS Nombre,
-CONCAT_WS(' - ', Album.Nombre, Grupo.Nombre) AS Album,
 COUNT(Canciones_Album.idCancion) AS Canciones,
 IF(DATE_FORMAT(Album.Duracion, "%H") = '00', DATE_FORMAT(Album.Duracion, "%i:%s"), DATE_FORMAT(Album.Duracion, "%H:%i:%s")) AS DuracionF,
 Album.Duracion AS Duracion,
@@ -315,10 +314,6 @@ ELSE Canciones.Nombre
 END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%d / %M / %Y") AS Publicacion,
-CASE
-WHEN Canciones.Interpretacion <> 'Original' THEN CONCAT(Canciones.Nombre, ' - ', Grupo.Nombre, ' ( ', Canciones.Interpretacion, ' ) ')
-ELSE CONCAT_WS(' - ', Canciones.Nombre, Grupo.Nombre) 
-END AS Cancion,
 Canciones.Genero,
 Canciones.Interpretacion,
 Grupo.Nombre AS Grupo
