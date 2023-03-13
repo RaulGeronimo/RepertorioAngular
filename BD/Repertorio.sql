@@ -382,7 +382,7 @@ ORDER BY Nombre, Album.Nombre;
 DELIMITER $$
 CREATE PROCEDURE `obtener_integrantes`(IN idGrupoB INT)
 BEGIN
-SELECT * FROM Vista_GrupoIntegrantes WHERE idGrupo = idGrupoB;
+SELECT Codigo, idArtista, Foto, NombreArtistico, Periodo, Edad, Instrumento, TipoVoz, Pais FROM Vista_GrupoIntegrantes WHERE idGrupo = idGrupoB;
 END$$
 
 DELIMITER ;
@@ -391,7 +391,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE `obtener_album`(IN idGrupoB INT)
 BEGIN
-SELECT * FROM Vista_Album WHERE idGrupo = idGrupoB ORDER BY Lanzamiento;
+SELECT idAlbum, Nombre, Grabacion, Canciones, DuracionF, FechaLanzamiento, Disquera, Portada FROM Vista_Album WHERE idGrupo = idGrupoB ORDER BY Lanzamiento;
 END$$
 
 DELIMITER ;
@@ -401,15 +401,11 @@ DELIMITER $$
 CREATE PROCEDURE `obtener_cancionesAlbum`(IN idAlbumA INT)
 BEGIN
     SELECT 
-        Codigo, 
-        idCancion, 
-        idAlbum, 
-        Album, 
+        Codigo,   
         Numero, 
         GROUP_CONCAT(Nombre separator ' / ') AS Nombre,
         DATE_FORMAT(sec_to_time(SUM(time_to_sec(Duracion))), "%H:%i")  AS Duracion,
-        Publicacion,
-        Genero
+        Publicacion
     FROM Vista_CancionesAlbum WHERE idAlbum = idAlbumA GROUP BY Numero ORDER BY Numero;
 END$$
 
@@ -419,7 +415,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE `obtener_canciones`(IN idGrupoB INT)
 BEGIN
-SELECT * FROM Vista_CancionesGrupo WHERE idGrupo = idGrupoB;
+SELECT idCancion, Nombre, Albums, Duracion, Publicacion FROM Vista_CancionesGrupo WHERE idGrupo = idGrupoB;
 END$$
 
 DELIMITER ;

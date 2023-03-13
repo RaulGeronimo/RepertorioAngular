@@ -18,6 +18,15 @@
             <strong>Requerido</strong></span>
         </div>
 
+        <!-- Numero -->
+        <div class="card-body">
+          <input type="number" formControlName="Numero" [(ngModel)]="cancionesAlbum.Numero" placeholder="Numero:"
+            class="form-control">
+
+          <span *ngIf="form.get('Numero')?.hasError('required') && form.get('Numero')?.touched">El campo NUMERO es
+            <strong>Requerido</strong></span>
+        </div>
+
         <!-- Cancion -->
         <div class="card-body">
           <div class="input-group">
@@ -31,15 +40,6 @@
 
           <span *ngIf="form.get('idCancion')?.hasError('required') && form.get('idCancion')?.touched">El campo CANCION
             es <strong>Requerido</strong></span>
-        </div>
-
-        <!-- Numero -->
-        <div class="card-body">
-          <input type="number" formControlName="Numero" [(ngModel)]="cancionesAlbum.Numero" placeholder="Numero:"
-            class="form-control">
-
-          <span *ngIf="form.get('Numero')?.hasError('required') && form.get('Numero')?.touched">El campo NUMERO es
-            <strong>Requerido</strong></span>
         </div>
 
         <button [disabled]="form.invalid" type="submit" class="btn btn-success">Aceptar</button>
