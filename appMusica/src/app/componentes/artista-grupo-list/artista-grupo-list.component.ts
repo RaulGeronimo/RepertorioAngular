@@ -28,6 +28,7 @@ export class ArtistaGrupoListComponent implements OnInit {
   obtenerLista() {
     this.Service.getArtistas().subscribe(
       (res) => {
+        console.log(res); //Muestra en consola
         //Llena el arreglo con la respuesta que enviamos
         this.artistas = res;
       },

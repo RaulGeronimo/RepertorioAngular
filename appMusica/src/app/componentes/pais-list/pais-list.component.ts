@@ -28,6 +28,7 @@ export class PaisListComponent implements OnInit {
   obtenerPaises() {
     this.paisService.getPaises().subscribe(
       (res) => {
+        console.log(res); //Muestra en consola
         //Llena el arreglo con la respuesta que enviamos
         this.paises = res;
       },

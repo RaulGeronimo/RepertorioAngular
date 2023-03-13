@@ -3,14 +3,20 @@
     <div class="card-body">
       <form [formGroup]="form" (ngSubmit)="edit ? actualiza() : add()">
 
+        <!-- Grupo -->
+        <div class="card-body">
+          <input type="text" formControlName="Grupo" [(ngModel)]="search" placeholder="Grupo:" class="form-control"
+            autofocus>
+        </div>
+
         <!-- Album -->
         <div class="card-body">
           <div class="input-group">
             <label class="input-group-text" for="inputGroupSelect01">Album</label>
             <select formControlName="idAlbum" [(ngModel)]="cancionesAlbum.idAlbum" class="form-control"
-              id="inputGroupSelect01" autofocus>
+              id="inputGroupSelect01">
               <option selected disabled value="">Selecciona un Album</option>
-              <option *ngFor="let Album of Album" value="{{Album.idAlbum}}">{{Album.Album}}</option>
+              <option *ngFor="let Album of Album | filter:search" value="{{Album.idAlbum}}">{{Album.Nombre}}</option>
             </select>
           </div>
 
@@ -34,7 +40,8 @@
             <select formControlName="idCancion" [(ngModel)]="cancionesAlbum.idCancion" class="form-control"
               id="inputGroupSelect02">
               <option selected disabled value="">Selecciona una Cancion</option>
-              <option *ngFor="let Canciones of Canciones" value="{{Canciones.idCancion}}">{{Canciones.Cancion}}</option>
+              <option *ngFor="let Canciones of Canciones | filter:search" value="{{Canciones.idCancion}}">
+                {{Canciones.Nombre}}</option>
             </select>
           </div>
 

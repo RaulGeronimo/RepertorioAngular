@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class Artista_grupoController {
     lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const grupo = yield database_1.default.query('SELECT * FROM Vista_GrupoIntegrantes');
+            const grupo = yield database_1.default.query('SELECT Codigo, NombreArtistico, Foto, FechaNacimiento, Edad, Instrumento, TipoVoz, Grupo, Periodo FROM Vista_GrupoIntegrantes');
             res.json(grupo);
         });
     }

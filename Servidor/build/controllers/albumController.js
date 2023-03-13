@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class AlbumController {
     lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const album = yield database_1.default.query('SELECT * FROM Vista_Album');
+            const album = yield database_1.default.query('SELECT idAlbum, Nombre, Album, Grupo, Canciones, DuracionF, FechaLanzamiento, Disquera, Portada FROM Vista_Album');
             res.json(album);
         });
     }

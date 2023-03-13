@@ -25,6 +25,7 @@ export class GruposListComponent implements OnInit {
   obtenerLista() {
     this.Service.getGrupos().subscribe(
       (res) => {
+        console.log(res); //Muestra en consola
         //Llena el arreglo con la respuesta que enviamos
         this.Grupos = res;
       },

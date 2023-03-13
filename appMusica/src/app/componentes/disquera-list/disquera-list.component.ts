@@ -28,6 +28,7 @@ export class DisqueraListComponent implements OnInit {
   obtenerLista() {
     this.Service.getDisqueras().subscribe(
       (res) => {
+        console.log(res); //Muestra en consola
         //Llena el arreglo con la respuesta que enviamos
         this.Disqueras = res;
       },

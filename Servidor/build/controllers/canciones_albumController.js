@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class Canciones_albumController {
     lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const grupo = yield database_1.default.query('SELECT * FROM Vista_CancionesAlbum');
+            const grupo = yield database_1.default.query('SELECT Codigo, Nombre, Album, Duracion, Genero FROM Vista_CancionesAlbum');
             res.json(grupo);
         });
     }

@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class CancionesController {
     lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const canciones = yield database_1.default.query('SELECT * FROM Vista_Canciones');
+            const canciones = yield database_1.default.query('SELECT idCancion, Nombre, Grupo, Duracion, Publicacion, Genero FROM Vista_Canciones');
             res.json(canciones);
         });
     }

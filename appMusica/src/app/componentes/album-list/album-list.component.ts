@@ -25,6 +25,7 @@ export class AlbumListComponent implements OnInit {
   obtenerLista() {
     this.Service.getAlbums().subscribe(
       (res) => {
+        console.log(res); //Muestra en consola
         //Llena el arreglo con la respuesta que enviamos
         this.Albums = res;
       },

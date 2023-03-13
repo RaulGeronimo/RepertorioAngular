@@ -28,6 +28,7 @@ export class InstrumentoListComponent implements OnInit {
   obtenerInstrumentos() {
     this.instrumentosService.getInstrumentos().subscribe(
       (res) => {
+        console.log(res); //Muestra en consola
         //Llena el arreglo con la respuesta que enviamos
         this.instrumentos = res;
       },

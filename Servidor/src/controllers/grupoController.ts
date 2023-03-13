@@ -3,7 +3,7 @@ import pool from "../database";
 
 class GrupoController{
     public async lista(req: Request, res: Response){
-        const grupo = await pool.query('SELECT * FROM Vista_Grupo');
+        const grupo = await pool.query('SELECT idGrupo, Logo, Nombre, Albumes, Cancion, Origen, Genero, FechaInicio, Estado, SitioWeb FROM Vista_Grupo');
         res.json(grupo);
     }
 

@@ -31,6 +31,7 @@ export class CancionesAlbumFormComponent implements OnInit {
   /* LLAVE FORANEA */
   Canciones: any = [];
   Album: any = [];
+  search: any;
 
   constructor(
     private Service: CancionesAlbumService,
@@ -42,6 +43,7 @@ export class CancionesAlbumFormComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.form = this.fb.group({
+      Grupo: [''],
       idAlbum: ['', Validators.required],
       idCancion: ['', Validators.required],
       Numero: [null, Validators.required],

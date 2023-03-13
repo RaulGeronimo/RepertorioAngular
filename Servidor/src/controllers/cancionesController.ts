@@ -3,7 +3,7 @@ import pool from "../database";
 
 class CancionesController{
     public async lista(req: Request, res: Response){
-        const canciones = await pool.query('SELECT * FROM Vista_Canciones');
+        const canciones = await pool.query('SELECT idCancion, Nombre, Grupo, Duracion, Publicacion, Genero FROM Vista_Canciones');
         res.json(canciones);
     }
 

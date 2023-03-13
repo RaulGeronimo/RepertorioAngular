@@ -28,6 +28,7 @@ export class CancionesAlbumListComponent implements OnInit {
   obtenerLista() {
     this.Service.getCanciones().subscribe(
       (res) => {
+        console.log(res); //Muestra en consola
         //Llena el arreglo con la respuesta que enviamos
         this.Canciones = res;
       },
