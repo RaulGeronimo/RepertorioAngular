@@ -3,7 +3,7 @@ import pool from "../database";
 
 class ArtistaController{
     public async lista(req: Request, res: Response){
-        const artista = await pool.query('SELECT idArtista, Foto, NombreArtistico, FechaNacimiento, Edad, Instrumentos, TipoVoz, Pais FROM Vista_Artista');
+        const artista = await pool.query('SELECT * FROM Vista_Artista');
         res.json(artista);
     }
 

@@ -6,7 +6,7 @@
   
   <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
   <input type="text" class="form-control bg-dark text-white" placeholder="Buscar" aria-label="Username" aria-describedby="addon-wrapping"
-    [(ngModel)]="search">
+    [(ngModel)]="search" autofocus>
 </div>
 
 <div class="col-md-4" *ngFor="let grupos of Grupos | filter:search" style="margin-bottom: 1.5rem;">

@@ -9,7 +9,7 @@
 
   <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
   <input type="text" class="form-control bg-dark text-white" placeholder="Buscar" aria-label="Username"
-    aria-describedby="addon-wrapping" [(ngModel)]="search">
+    aria-describedby="addon-wrapping" [(ngModel)]="search" autofocus>
 </div>
 
 <div class="row">
@@ -61,7 +61,7 @@
         <p style="font-weight: bold;">Canciones</p>
         <p>{{album.Canciones}}</p>
         <p style="font-weight: bold;">Duración</p>
-        <p>{{album.DuracionF}}</p>
+        <p>{{album.Duracion}}</p>
         <p style="font-weight: bold;">Lanzamiento</p>
         <p>{{album.FechaLanzamiento}}</p>
         <p style="font-weight: bold;">Disquera</p>

@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class GrupoController {
     lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const grupo = yield database_1.default.query('SELECT idGrupo, Logo, Nombre, Albumes, Cancion, Origen, Genero, FechaInicio, Estado, SitioWeb FROM Vista_Grupo');
+            const grupo = yield database_1.default.query('SELECT * FROM Vista_Grupo');
             res.json(grupo);
         });
     }

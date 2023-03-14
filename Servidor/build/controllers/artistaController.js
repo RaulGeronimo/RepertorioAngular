@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class ArtistaController {
     lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const artista = yield database_1.default.query('SELECT idArtista, Foto, NombreArtistico, FechaNacimiento, Edad, Instrumentos, TipoVoz, Pais FROM Vista_Artista');
+            const artista = yield database_1.default.query('SELECT * FROM Vista_Artista');
             res.json(artista);
         });
     }

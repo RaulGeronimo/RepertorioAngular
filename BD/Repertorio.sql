@@ -131,7 +131,8 @@ ELSE 'Fecha Invalida'
 END AS Edad,
 FORMAT(Artista.Estatura, 2) AS Estatura,
 CONCAT_WS(' - ', Pais.Nombre, Pais.Nacionalidad) AS Pais,
-Artista.Instrumentos,
+/*Artista.Instrumentos,*/
+Mayuscula(Artista.Instrumentos) AS Instrumentos,
 Artista.TipoVoz,
 Artista.Foto
 FROM Artista
@@ -145,63 +146,54 @@ Vista_Grupo AS
 SELECT 
 G.idGrupo,
 G.Nombre,
-SUM(Albumes) AS Albumes,
-SUM(Cancion) AS Cancion,
+SUM(G.Albumes) AS Albumes,
+SUM(G.Cancion) AS Cancion,
 G.Origen,
-G.Genero,
-DATE_FORMAT(G.Inicio, "%Y") AS FechaInicio,
-DATE_FORMAT(G.Fin, "%Y") AS FechaFin,
-DATE_FORMAT(G.Inicio, '%Y-%m-%d') AS Inicio,
-G.Fin AS Fin,
+Mayuscula(G.Genero) AS Genero,
+G.FechaInicio,
 G.Sellos,
 G.Estado,
 G.SitioWeb,
 G.Idioma,
 G.Logo
 FROM(
-SELECT 
-a.idGrupo,
-a.Nombre,
-COUNT(idAlbum) AS Albumes,
-0 AS Cancion,
-a.Origen,
-a.Genero,
-DATE_FORMAT(a.Inicio, "%Y") AS FechaInicio,
-DATE_FORMAT(a.Fin, "%Y") AS FechaFin,
-DATE_FORMAT(a.Inicio, '%Y-%m-%d') AS Inicio,
-a.Fin AS Fin,
-a.Sellos,
-a.Estado,
-a.SitioWeb,
-a.Idioma,
-a.Logo
-FROM Grupo AS a
-LEFT JOIN Album as c2
-ON a.idGrupo = c2.idGrupo
-GROUP BY (a.idGrupo)
+    SELECT 
+    a.idGrupo,
+    a.Nombre,
+    COUNT(idAlbum) AS Albumes,
+    0 AS Cancion,
+    a.Origen,
+    a.Genero,
+    DATE_FORMAT(a.Inicio, "%Y") AS FechaInicio,
+    a.Sellos,
+    a.Estado,
+    a.SitioWeb,
+    a.Idioma,
+    a.Logo
+    FROM Grupo AS a
+    LEFT JOIN Album as c2
+    ON a.idGrupo = c2.idGrupo
+    GROUP BY (a.idGrupo)
 
-UNION ALL
+    UNION ALL
 
-SELECT
-b.idGrupo,
-b.Nombre,
-0 AS Albumes,
-COUNT(idCancion) AS Cancion,
-b.Origen,
-b.Genero,
-DATE_FORMAT(b.Inicio, "%Y") AS FechaInicio,
-DATE_FORMAT(b.Fin, "%Y") AS FechaFin,
-DATE_FORMAT(b.Inicio, '%Y-%m-%d') AS Inicio,
-b.Fin AS Fin,
-b.Sellos,
-b.Estado,
-b.SitioWeb,
-b.Idioma,
-b.Logo
-FROM Grupo AS b
-LEFT JOIN Canciones AS c1
-ON b.idGrupo = c1.idGrupo
-GROUP BY (b.idGrupo)
+    SELECT
+    b.idGrupo,
+    b.Nombre,
+    0 AS Albumes,
+    COUNT(idCancion) AS Cancion,
+    b.Origen,
+    b.Genero,
+    DATE_FORMAT(b.Inicio, "%Y") AS FechaInicio,
+    b.Sellos,
+    b.Estado,
+    b.SitioWeb,
+    b.Idioma,
+    b.Logo
+    FROM Grupo AS b
+    LEFT JOIN Canciones AS c1
+    ON b.idGrupo = c1.idGrupo
+    GROUP BY (b.idGrupo)
 ) AS G 
 GROUP BY G.idGrupo
 ORDER BY (G.Nombre);
@@ -212,34 +204,26 @@ Vista_GrupoIntegrantes AS
 SELECT
 Artista_Grupo.Codigo,
 Artista.idArtista,
-Artista.Nombre,
+Grupo.idGrupo,
 Artista.NombreArtistico,
 IF (Artista.Genero = 'H', 'Hombre', 'Mujer') AS Genero,
 DATE_FORMAT(Artista.FechaNacimiento, "%d / %M / %Y") AS FechaNacimiento,
-DATE_FORMAT(Artista.FechaFinado, "%d / %M / %Y") AS FechaFinado,
-
+Instrumento.Nombre AS Instrumento,
 CASE
 WHEN Artista.FechaFinado IS NULL OR Artista.FechaFinado <= 0 THEN CONCAT_WS(' ', TIMESTAMPDIFF(YEAR, Artista.FechaNacimiento, NOW()), 'años')
 WHEN Artista.FechaFinado <= 0 THEN 'Fecha Invalida'
 WHEN Artista.FechaNacimiento <= Artista.FechaFinado THEN CONCAT_WS(' ', TIMESTAMPDIFF(YEAR, Artista.FechaNacimiento, Artista.FechaFinado), 'años')
 ELSE 'Fecha Invalida'
 END AS Edad,
-
-FORMAT(Artista.Estatura, 2) AS Estatura,
 CONCAT_WS(' - ', Pais.Nombre, Pais.Nacionalidad) AS Pais,
-Instrumento.Nombre AS Instrumento,
 Artista.TipoVoz,
 Artista.Foto,
-DATE_FORMAT(Artista_Grupo.FechaInicio, "%Y") AS FechaInicio,
-DATE_FORMAT(Artista_Grupo.FechaFin, "%Y") AS FechaFin,
-
 CASE
 WHEN Artista_Grupo.FechaFin IS NULL OR Artista_Grupo.FechaFin <= 0 THEN CONCAT_WS(' - ', YEAR(Artista_Grupo.FechaInicio), 'Actualidad')
 ELSE CONCAT_WS(' - ', YEAR(Artista_Grupo.FechaInicio), YEAR(Artista_Grupo.FechaFin))
 END AS Periodo,
-
-Grupo.idGrupo,
 Grupo.Nombre AS Grupo
+
 FROM Artista
 INNER JOIN Pais
 ON Artista.idNacionalidad = Pais.idPais
@@ -253,7 +237,7 @@ ON Grupo.idGrupo = Artista_Grupo.idGrupo
 INNER JOIN Instrumento
 ON Artista_Grupo.idInstrumento = Instrumento.idInstrumento
 
-ORDER BY Nombre, FechaInicio DESC;
+ORDER BY Artista.Nombre, FechaInicio DESC;
 
 /* --------------------------------------------------------------------- DISQUERA --------------------------------------------------------------------- */
 CREATE OR REPLACE VIEW
@@ -276,19 +260,18 @@ CREATE OR REPLACE VIEW
 Vista_Album AS
 SELECT
 Album.idAlbum,
-Album.idGrupo,
-Album.idDisquera,
-Grupo.Nombre AS Grupo,
-Disquera.Nombre AS Disquera,
+Grupo.idGrupo,
 Album.Nombre AS Nombre,
+Grupo.Nombre AS Grupo,
 COUNT(Canciones_Album.idCancion) AS Canciones,
-IF(DATE_FORMAT(Album.Duracion, "%H") = '00', DATE_FORMAT(Album.Duracion, "%i:%s"), DATE_FORMAT(Album.Duracion, "%H:%i:%s")) AS DuracionF,
-Album.Duracion AS Duracion,
-DATE_FORMAT(Album.Lanzamiento, "%Y-%m-%d") AS Lanzamiento,
+Disquera.Nombre AS Disquera,
+IF(DATE_FORMAT(Album.Duracion, "%H") = '00', DATE_FORMAT(Album.Duracion, "%i:%s"), DATE_FORMAT(Album.Duracion, "%H:%i:%s")) AS Duracion,
 DATE_FORMAT(Album.Lanzamiento, "%d / %M / %Y") AS FechaLanzamiento,
+Album.Lanzamiento,
 Album.Grabacion,
-Album.Genero,
+Mayuscula(Album.Genero) AS Genero,
 Album.Portada
+
 FROM Album
 INNER JOIN Grupo
 ON Album.idGrupo = Grupo.idGrupo
@@ -314,7 +297,7 @@ ELSE Canciones.Nombre
 END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Canciones.Publicacion, "%d / %M / %Y") AS Publicacion,
-Canciones.Genero,
+Mayuscula(Canciones.Genero) AS Genero,
 Canciones.Interpretacion,
 Grupo.Nombre AS Grupo
 FROM Canciones
@@ -338,7 +321,7 @@ ELSE Canciones.Nombre
 END AS Nombre,
 DATE_FORMAT(Canciones.Duracion, "%i:%s") AS Duracion,
 DATE_FORMAT(Publicacion, "%d / %M / %Y") AS Publicacion,
-Canciones.Genero
+Mayuscula(Canciones.Genero) AS Genero
 FROM Canciones
 INNER JOIN Canciones_Album
 ON Canciones.idCancion = Canciones_Album.idCancion
@@ -374,43 +357,71 @@ ORDER BY Nombre, Album.Nombre;
 
 /* ----------------------------------------------------------------------------- PROCEDIMIENTOS ALMACENADOS ----------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------ ARTISTA GRUPO ------------------------------------------------------------------ */
+DROP procedure IF EXISTS `obtener_integrantes`;
 DELIMITER $$
 CREATE PROCEDURE `obtener_integrantes`(IN idGrupoB INT)
 BEGIN
-SELECT Codigo, idArtista, Foto, NombreArtistico, Periodo, Edad, Instrumento, TipoVoz, Pais FROM Vista_GrupoIntegrantes WHERE idGrupo = idGrupoB;
+SELECT * FROM Vista_GrupoIntegrantes WHERE idGrupo = idGrupoB;
 END$$
 
 DELIMITER ;
 
 /* ------------------------------------------------------------------- ALBUM GRUPO ------------------------------------------------------------------- */
+DROP procedure IF EXISTS `obtener_album`;
 DELIMITER $$
 CREATE PROCEDURE `obtener_album`(IN idGrupoB INT)
 BEGIN
-SELECT idAlbum, Nombre, Grabacion, Canciones, DuracionF, FechaLanzamiento, Disquera, Portada FROM Vista_Album WHERE idGrupo = idGrupoB ORDER BY Lanzamiento;
+SELECT idAlbum, idGrupo, Nombre, Grabacion, Canciones, Duracion, FechaLanzamiento, Disquera, Portada FROM Vista_Album WHERE idGrupo = idGrupoB ORDER BY Lanzamiento;
 END$$
 
 DELIMITER ;
 
 /* ----------------------------------------------------------------- CANCIONES ALBUM ----------------------------------------------------------------- */
+DROP procedure IF EXISTS `obtener_cancionesAlbum`;
 DELIMITER $$
 CREATE PROCEDURE `obtener_cancionesAlbum`(IN idAlbumA INT)
 BEGIN
-    SELECT 
-        Codigo,   
-        Numero, 
-        GROUP_CONCAT(Nombre separator ' / ') AS Nombre,
-        DATE_FORMAT(sec_to_time(SUM(time_to_sec(Duracion))), "%H:%i")  AS Duracion,
-        Publicacion
-    FROM Vista_CancionesAlbum WHERE idAlbum = idAlbumA GROUP BY Numero ORDER BY Numero;
+SELECT 
+	Codigo,   
+	Numero, 
+    GROUP_CONCAT(Nombre separator ' / ') AS Nombre,
+    DATE_FORMAT(sec_to_time(SUM(time_to_sec(Duracion))), "%H:%i")  AS Duracion,
+    Publicacion
+FROM Vista_CancionesAlbum WHERE idAlbum = idAlbumA GROUP BY Numero ORDER BY Numero;
 END$$
 
 DELIMITER ;
 
 /* ----------------------------------------------------------------- CANCIONES GRUPO ----------------------------------------------------------------- */
+DROP procedure IF EXISTS `obtener_canciones`;
 DELIMITER $$
 CREATE PROCEDURE `obtener_canciones`(IN idGrupoB INT)
 BEGIN
 SELECT idCancion, Nombre, Albums, Duracion, Publicacion FROM Vista_CancionesGrupo WHERE idGrupo = idGrupoB;
+END$$
+
+DELIMITER ;
+
+/* ------------------------------------------------------------------------------------- FUNCIONES ------------------------------------------------------------------------------------- */
+DROP function IF EXISTS `Mayuscula`;
+DELIMITER $$
+CREATE FUNCTION `Mayuscula` (cadena TEXT)
+RETURNS TEXT
+BEGIN
+	DECLARE pos INT DEFAULT 0; 
+	DECLARE tmp VARCHAR(100) 
+	DEFAULT ''; 
+	DECLARE result VARCHAR(100) DEFAULT ''; 
+	REPEAT SET pos = LOCATE(' ', cadena); 
+	 IF pos = 0 THEN SET pos = CHAR_LENGTH(cadena); 
+	 END IF; 
+	 SET tmp = LEFT(cadena,pos); 
+	 IF CHAR_LENGTH(tmp) < 4 THEN SET result = CONCAT(result, tmp); 
+	 ELSE SET result = CONCAT(result, UPPER(LEFT(tmp,1)),SUBSTR(tmp,2)); 
+	 END IF; 
+	 SET cadena = RIGHT(cadena,CHAR_LENGTH(cadena)-pos); 
+	UNTIL CHAR_LENGTH(cadena) = 0 END REPEAT; 
+RETURN result; 
 END$$
 
 DELIMITER ;
