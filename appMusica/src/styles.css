@@ -1,121 +1,149 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-image: url(/assets/fondo.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url(/assets/fondo.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.inicio {
+  margin-block-start: 60px;
+  margin-block-end: 10px;
+}
+
+.margen {
+  margin-bottom: 1.5rem;
+}
+
+.botones {
+  float: right;
+}
+
+.botones button,
+a {
+  margin-right: 4px;
+}
+
+form button {
+  margin-right: 4px;
+}
+
+span strong {
+  color: brown;
+}
+
+/* TABLA */
+table {
+  width: 100%;
+  background: #303030;
+  margin-bottom: 1.25em;
+  border: solid 1px #dddddd;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table thead {
+  background-color: #000000;
+}
+
+table tr th,
+table tr td {
+  padding: 0.5625em 0.625em;
+  font-size: 0.875em;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+table th {
+  text-transform: uppercase;
+}
+
+table tr.even,
+table tr.alt,
+table tr:nth-of-type(even) {
+  background: #000000;
+}
+
+@media only screen and (max-width: 768px) {
+
+  table.resp,
+  .resp thead,
+  .resp tbody,
+  .resp tr,
+  .resp th,
+  .resp td,
+  .resp caption {
+    display: block;
   }
-  
-  .inicio {
-    margin-block-start: 60px;
-    margin-block-end: 10px;
+
+  table.resp {
+    border: none
   }
-  
-  .margen{
-    margin-bottom: 1.5rem;
+
+  .resp thead tr {
+    display: none;
   }
-  
-  .botones {
-    float: right;
+
+  .resp tbody tr {
+    margin: 1em 0;
+    border: 1px solid white;
   }
-  
-  .botones button,
-  a {
-    margin-right: 4px;
+
+  .resp td {
+    border: none;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+    padding-left: 45%;
+    text-align: left;
   }
-  
-  form button {
-    margin-right: 4px;
+
+  .resp tr td:last-child {
+    border-bottom: 1px double #dddddd;
   }
-  
-  span strong {
-    color: brown;
+
+  .resp tr:last-child td:last-child {
+    border: none;
   }
-  
-  /* TABLA */
-  table {
-    width: 100%;
-    background: #303030;
-    margin-bottom: 1.25em;
-    border: solid 1px #dddddd;
-    border-collapse: collapse;
-    border-spacing: 0;
+
+  .resp td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
   }
-  
-  table thead{
-    background-color: #000000;
-  }
-  
-  table tr th,
-  table tr td {
-    padding: 0.5625em 0.625em;
-    font-size: 0.875em;
-    text-align: center;
-    color: #ffffff;
-    border: 1px solid #dddddd;
-  }
-  
-  table th {
-    text-transform: uppercase;
-  }
-  
-  table tr.even,
-  table tr.alt,
-  table tr:nth-of-type(even) {
-    background: #000000;
-  }
-  
-  @media only screen and (max-width: 768px) {
-  
-    table.resp,
-    .resp thead,
-    .resp tbody,
-    .resp tr,
-    .resp th,
-    .resp td,
-    .resp caption {
-      display: block;
-    }
-  
-    table.resp {
-      border: none
-    }
-  
-    .resp thead tr {
-      display: none;
-    }
-  
-    .resp tbody tr {
-      margin: 1em 0;
-      border: 1px solid white;
-    }
-  
-    .resp td {
-      border: none;
-      border-bottom: 1px solid #dddddd;
-      position: relative;
-      padding-left: 45%;
-      text-align: left;
-    }
-  
-    .resp tr td:last-child {
-      border-bottom: 1px double #dddddd;
-    }
-  
-    .resp tr:last-child td:last-child {
-      border: none;
-    }
-  
-    .resp td:before {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      text-align: left;
-      font-weight: bold;
-    }
-  }
-  
+}
+
+/* SCROLL */
+.container-scroll {
+  width: 100%;
+  height: 83vh;
+  line-height: 1.3;
+  overflow: auto;
+}
+
+/* Tamaño del scroll */
+.container-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+.container-scroll::-webkit-scrollbar-thumb {
+  background: #303030;
+  border-radius: 4px;
+}
+
+.container-scroll::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+/* Estilos track de scroll */
+.container-scroll::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}

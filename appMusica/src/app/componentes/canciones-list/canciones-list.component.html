@@ -6,31 +6,33 @@
     aria-describedby="addon-wrapping" [(ngModel)]="search" autofocus>
 </div>
 
-<table class="espacio resp">
-  <thead>
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Grupo</th>
-      <th scope="col">Duración</th>
-      <th scope="col">Publicación</th>
-      <th scope="col">Genero</th>
-      <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let canciones of Canciones | filter:search">
-      <td>{{canciones.Nombre}}</td>
-      <td>{{canciones.Grupo}}</td>
-      <td>{{canciones.Duracion}}</td>
-      <td>{{canciones.Publicacion}}</td>
-      <td>{{canciones.Genero}}</td>
-      <td>
-        <a [routerLink]="['/canciones/actualizar', canciones.idCancion]" class="btn btn-info btn-block"><i
-            class="fa-solid fa-pen-to-square"></i></a>
-        <button class="btn btn-danger" (click)="borrar(canciones.idCancion)">
-          <i class="far fa-trash-alt"></i>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-scroll">
+  <table class="table table-hover resp">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Grupo</th>
+        <th scope="col">Duración</th>
+        <th scope="col">Publicación</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let canciones of Canciones | filter:search">
+        <td>{{canciones.Nombre}}</td>
+        <td>{{canciones.Grupo}}</td>
+        <td>{{canciones.Duracion}}</td>
+        <td>{{canciones.Publicacion}}</td>
+        <td>{{canciones.Genero}}</td>
+        <td>
+          <a [routerLink]="['/canciones/actualizar', canciones.idCancion]" class="btn btn-info btn-block"><i
+              class="fa-solid fa-pen-to-square"></i></a>
+          <button class="btn btn-danger" (click)="borrar(canciones.idCancion)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -10,22 +10,24 @@
     aria-describedby="addon-wrapping" [(ngModel)]="search" autofocus>
 </div>
 
-<div class="col-md-4" *ngFor="let pais of paises | filter:search" style="margin-bottom: 1.5rem;">
-  <div class="card text-center">
-    <div class="card-header text-white d-flex justify-content-between align-items-center">
-      {{pais.Nombre}}
-      <button class="btn btn-danger" (click)="borrarPais(pais.idPais)">
-        <i class="far fa-trash-alt"></i>
-      </button>
-    </div>
-    <img id="imagen" [src]="pais.Bandera == '' ? '/assets/noImagen.png' : pais.Bandera "
-      style="margin-left: auto; margin-right: auto; height: 300px;" alt="Imagen del Pais">
-    <div class="card-body">
-      <p style="font-weight: bold;">Nacionalidad</p>
-      <p>{{pais.Nacionalidad}}</p>
-      <p style="font-weight: bold;">Continente</p>
-      <p>{{pais.Continente}}</p>
-      <a [routerLink]="['/pais/actualizar', pais.idPais]" class="btn btn-info btn-block">Editar</a>
+<div class="container-scroll row">
+  <div class="col-md-4" *ngFor="let pais of paises | filter:search" style="margin-bottom: 1.5rem;">
+    <div class="card text-center">
+      <div class="card-header text-white d-flex justify-content-between align-items-center">
+        {{pais.Nombre}}
+        <button class="btn btn-danger" (click)="borrarPais(pais.idPais)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <img id="imagen" [src]="pais.Bandera == '' ? '/assets/noImagen.png' : pais.Bandera "
+        style="margin-left: auto; margin-right: auto; height: 300px;" alt="Imagen del Pais">
+      <div class="card-body">
+        <p style="font-weight: bold;">Nacionalidad</p>
+        <p>{{pais.Nacionalidad}}</p>
+        <p style="font-weight: bold;">Continente</p>
+        <p>{{pais.Continente}}</p>
+        <a [routerLink]="['/pais/actualizar', pais.idPais]" class="btn btn-info btn-block">Editar</a>
+      </div>
     </div>
   </div>
 </div>
